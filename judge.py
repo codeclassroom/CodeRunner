@@ -2,7 +2,7 @@ import requests
 import time
 import sys
 
-# language IDs on judge0
+# language IDs on judge0, see README.md
 languages = {
 	"C++" : 10,
 	"Java" : 27,
@@ -37,7 +37,7 @@ def readExpectedOutput(output_file):
 	return data
 
 
-def read_stdin(output_file):
+def readStandardInput(output_file):
 	with open(output_file, 'r') as out:
 		data = out.read()
 	return data
@@ -48,24 +48,18 @@ def readStatus(token):
 		res = requests.get("https://api.judge0.com/submissions/" + token['token'])
 		response = res.json()
 		status = response['status']['description']
-		#time.sleep(0.5) # wait for judge0 to compile
 		if status != "Processing" and status != "In Queue":
 			break
-
-	print("Processing 🔵 , \n" + program)
-	print("Expected Output : \n" + stdout)
+		print(f'{status} ...')
 
 	if response['status']['description'] == "Accepted":
-		print("Output : \n" + str(response['stdout']))
+		print(f'Output : \n{response["stdout"]}')
 		print("Compile Success ✅")
+		return response['status']['description']
 	else:
-		print("Compile Failed ❌")
-		print("Output : " + str(response['stdout']))
-		print("Error : " + str(response['stderr']))
-		print("Message : " + str(response['message']) + ", " + response['status']['description'])
+		return response
 
-
-def compile(program, language_id, *argv):
+def submit(program, language_id, *argv):
 	if len(argv) == 2:
 		stdout = argv[0]
 		stdin = argv[1]
@@ -79,24 +73,18 @@ def compile(program, language_id, *argv):
 
 	res = requests.post("https://api.judge0.com/submissions", data=api_params)
 	token = res.json()
-	readStatus(token)
+	return token
 
 
-if __name__ == '__main__':
-	if len(sys.argv) == 4:
-		program = sys.argv[1]
-		language = sys.argv[2]
-		output_file = sys.argv[3]
-		stdout = readExpectedOutput(output_file)
-		inputCode = readCode(program)
-		compile(inputCode, languages[language],stdout)
-
-	elif len(sys.argv) == 5:
-		program = sys.argv[1]
-		language = sys.argv[2]
-		output_file = sys.argv[3]
-		in_file = sys.argv[4]
-		stdin = read_stdin(in_file)
-		stdout = readExpectedOutput(output_file)
-		inputCode = readCode(program)
-		compile(inputCode, languages[language], stdout, stdin)
+def run(program, language, *argv):
+	program = readCode(program)
+	stdout = readExpectedOutput(argv[0])
+	
+	if len(argv) == 2:
+		stdin = readStandardInput(argv[1])
+		token = submit(program, languages[language], stdout, stdin)
+		status = readStatus(token)
+	elif len(argv) == 1:
+		token = submit(program, languages[language], stdout)
+		status = readStatus(token)
+	return status

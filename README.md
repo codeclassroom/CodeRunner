@@ -15,49 +15,37 @@ git clone https://github.com/codeclassroom/cc-judge.git
 ```bash
 pip install -r requirements.txt
 ```
-4. Run this command to test the script.
+4. Run tests.
 ```bash
-python3 judge.py test_java.java Java output.txt
+python3 test.py
 ```
 
 ### Usage
-Currently it can be used as a script only.
 
-```bash
-python3 judge.py *arg1* *arg2* *arg3* *arg4*  
-```
+Import the `run` method from *judge.py*.
 
-1. `arg1` = Program to compile/interpret (e.g helloword.java, test.cpp).
+```python
+from judge import run
 
-2. `arg2` = programming language, currently available languages :
-	- C++ (g++ 7.2.0)
-	- Python (3.6.0)
-	- Java (OpenJDK 8)
-	- C (gcc 6.4.0)
+program_name = "test_python.py"
+language = "Python"
+output = "output.txt"
 
-3. `arg3` = Expected Output textfile (e.g output.txt)
-
-4. `arg4` = Standard Input, a textfile which contains the input to program (e.g input.txt)
-
-The whole command should look like.
-```bash
-python3 judge.py myfile.java Java output.txt input.txt
-```
-or if you don't have a `stdin`.
-```bash
-python3 judge.py myfile.java Java output.txt
+status = run(program_name, language, output)
+print(status)
 ```
 
 
-### Pointers
-- In a `Java` program the class name should always be ***Main***.
+### Pointers ✏
+- In a `Java` program the class name should always be ***`Main`***.
 
 
 ### TODO 📑
 ```
 ❌ Compile multiple files asynchronously.
-❌ Convert the whole script into a module.
+✅ Convert the whole script into a module.
 ❌ Add --help to display script usage.
+❌ Return live status of the submission.
 ```
 
 ### Author
