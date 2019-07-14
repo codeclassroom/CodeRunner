@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ```
 4. Run tests.
 ```bash
-python3 test.py
+python3 tests.py
 ```
 
 ### Usage
