@@ -39,10 +39,10 @@ print(status)
 ### Pointers ✏
 - In a `Java` program the class name should always be ***`Main`***.
 - Currently supported languages :
- - C (gcc 7.2.0)
- - C++ (g++ 7.2.0)
- - Java (OpenJDK 8)
- - Python (3.6.0)
+  - C (gcc 7.2.0)
+  - C++ (g++ 7.2.0)
+  - Java (OpenJDK 8)
+  - Python (3.6.0)
 
 
 
