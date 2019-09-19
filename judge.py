@@ -45,17 +45,17 @@ def readStandardInput(output_file):
 
 def readStatus(token):
 	while True:
-		res = requests.get("https://api.judge0.com/submissions/" + token['token'])
-		response = res.json()
+		req = requests.get("https://api.judge0.com/submissions/" + token['token'])
+		response = req.json()
 		status = response['status']['description']
 		if status != "Processing" and status != "In Queue":
 			break
-		print(f'{status} ...')
+		print(status)
 
-	if response['status']['description'] == "Accepted":
+	if status == "Accepted":
 		print(f'Output : \n{response["stdout"]}')
 		print("Compile Success ✅")
-		return response['status']['description']
+		return status
 	else:
 		return response
 
