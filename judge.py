@@ -23,7 +23,7 @@ api_params = {
     "max_file_size": "1024"
 }
 
-
+API_URL = "https://api.judge0.com/submissions/"
 
 def readCode(program):
 	with open(program, 'r') as myfile:
@@ -45,7 +45,7 @@ def readStandardInput(output_file):
 
 def readStatus(token):
 	while True:
-		req = requests.get("https://api.judge0.com/submissions/" + token['token'])
+		req = requests.get(API_URL + token['token'])
 		response = req.json()
 		status = response['status']['description']
 		if status != "Processing" and status != "In Queue":
@@ -71,7 +71,7 @@ def submit(program, language_id, *argv):
 	api_params['language_id'] = language_id
 	api_params['source_code'] = program
 
-	res = requests.post("https://api.judge0.com/submissions", data=api_params)
+	res = requests.post(API_URL, data=api_params)
 	token = res.json()
 	return token
 

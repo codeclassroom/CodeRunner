@@ -38,19 +38,17 @@ print(status)
 
 ### Pointers ✏
 - In a `Java` program the class name should always be ***`Main`***.
+- Currently supported languages :
+ - C (gcc 7.2.0)
+ - C++ (g++ 7.2.0)
+ - Java (OpenJDK 8)
+ - Python (3.6.0)
 
 
-### TODO 📑
-```
-❌ Compile multiple files asynchronously.
-✅ Convert the whole script into a module.
-❌ Add --help to display script usage.
-❌ Return live status of the submission.
-```
 
 ### Author
 
 👥 **Bhupesh Varshney**
 
 - Twitter: [@bhupeshimself](https://twitter.com/bhupeshimself)
-- Github: [@Bhupesh-V](https://github.com/Bhupesh-V)
+- DEV: [bhupesh](https://dev.to/bhupesh)
