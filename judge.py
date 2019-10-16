@@ -53,11 +53,12 @@ def readStatus(token):
 		print(status)
 
 	if status == "Accepted":
-		print(f'Output : \n{response["stdout"]}')
+		#print(f'Output : \n{response["stdout"]}')
+		print(f'Time : {response["time"]}')
 		print("Compile Success ✅")
 		return status
 	else:
-		return response
+		return response['status']['description']
 
 def submit(program, language_id, *argv):
 	if len(argv) == 2:
