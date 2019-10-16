@@ -1,5 +1,5 @@
 import unittest
-from judge import run
+from CodeRunner.run import run
 
 #test for Java program
 class TestRunA(unittest.TestCase):

@@ -1,5 +1,5 @@
-# cc-judge
-> The future judge for CodeClassroom.(_WIP_)
+# CodeRunner
+> The future code runner for CodeClassroom (_WIP_)
 
 
 ### Installation
@@ -9,7 +9,7 @@ virtualenv -p python3 venv && cd venv && source bin/activate
 ```
 2. Clone the repository.
 ```bash
-git clone https://github.com/codeclassroom/cc-judge.git
+git https://github.com/codeclassroom/CodeRunner.git
 ```
 3. Install Dependencies.
 ```bash
@@ -22,10 +22,10 @@ python3 tests.py
 
 ### Usage
 
-Import the `run` method from *judge.py*.
+Import the `run` method from *CodeRunner* module.
 
 ```python
-from judge import run
+from CodeRunner.run import run
 
 program_name = "test_python.py"
 language = "Python"
