@@ -1,6 +1,6 @@
-import requests
 import time
 import sys
+import requests
 
 # language IDs on judge0, see README.md
 languages = {
@@ -25,67 +25,79 @@ api_params = {
 
 API_URL = "https://api.judge0.com/submissions/"
 
-def readCode(program):
-	with open(program, 'r') as myfile:
-		data = myfile.read()
-	return data
+class coderunner:
+
+	def __init__(self, program_name, lang, output, inp = None):
+		self.program_name = program_name
+		self.lang = lang
+		self.output = output
+		self.inp = inp
+		self.language_id = languages[lang]
+
+	def readCode(self):
+		"""
+		Read Source Code & return as string
+		"""
+		with open(self.program_name, 'r') as myfile:
+			data = myfile.read()
+		return data
 
 
-def readExpectedOutput(output_file):
-	with open(output_file, 'r') as out:
-		data = out.read()
-	return data
+	def readExpectedOutput(self):
+		with open(self.output, 'r') as out:
+			data = out.read()
+		return data
 
 
-def readStandardInput(output_file):
-	with open(output_file, 'r') as out:
-		data = out.read()
-	return data
+	def readStandardInput(self):
+		with open(self.inp, 'r') as out:
+			data = out.read()
+		return data
 
 
-def readStatus(token):
-	while True:
-		req = requests.get(API_URL + token['token'])
-		response = req.json()
-		status = response['status']['description']
-		if status != "Processing" and status != "In Queue":
-			break
-		print(status)
+	def readStatus(self, token):
+		"""
+		Check Submission status
+		"""
+		while True:
+			req = requests.get(API_URL + token['token'])
+			response = req.json()
+			status = response['status']['description']
+			if status != "Processing" and status != "In Queue":
+				break
+			print(status)
 
-	if status == "Accepted":
-		#print(f'Output : \n{response["stdout"]}')
-		print(f'Time : {response["time"]}')
-		print("Compile Success ✅")
+		if status == "Accepted":
+			#print(f'Output : \n{response["stdout"]}')
+			print(f'Time : {response["time"]}')
+			print("Compile Success ✅")
+			return status
+		else:
+			return response['status']['description']
+
+	def submit(self):
+		if self.inp != None:
+			api_params['stdin'] = self.inp
+		
+		api_params['expected_output'] = self.output
+		api_params['language_id'] = self.language_id
+		api_params['source_code'] = self.program_name
+
+		res = requests.post(API_URL, data=api_params)
+		token = res.json()
+		return token
+
+
+	def run(self):
+		self.program_name = self.readCode()
+		self.output = self.readExpectedOutput()
+		
+		if self.inp != None:
+			self.inp = self.readStandardInput()
+			token = self.submit()
+			status = self.readStatus(token)
+		else:
+			token = self.submit()
+			status = self.readStatus(token)
 		return status
-	else:
-		return response['status']['description']
 
-def submit(program, language_id, *argv):
-	if len(argv) == 2:
-		stdout = argv[0]
-		stdin = argv[1]
-		api_params['stdin'] = stdin
-	elif len(argv) == 1:
-		stdout = argv[0]
-	
-	api_params['expected_output'] = stdout
-	api_params['language_id'] = language_id
-	api_params['source_code'] = program
-
-	res = requests.post(API_URL, data=api_params)
-	token = res.json()
-	return token
-
-
-def run(program, language, *argv):
-	program = readCode(program)
-	stdout = readExpectedOutput(argv[0])
-	
-	if len(argv) == 2:
-		stdin = readStandardInput(argv[1])
-		token = submit(program, languages[language], stdout, stdin)
-		status = readStatus(token)
-	elif len(argv) == 1:
-		token = submit(program, languages[language], stdout)
-		status = readStatus(token)
-	return status

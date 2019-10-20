@@ -1,5 +1,5 @@
 import unittest
-from CodeRunner.run import run
+import CodeRunner.run as cr
 
 #test for Java program
 class TestRunA(unittest.TestCase):
@@ -7,7 +7,8 @@ class TestRunA(unittest.TestCase):
 		program_name = "testfiles/" + "test_java.java"
 		language = "Java"
 		output = "testfiles/" + "output.txt"
-		self.assertEqual(run(program_name, language, output),
+		r = cr.coderunner(program_name, language, output)
+		self.assertEqual(r.run(),
                      "Accepted", "Something Wrong")
 
 #test for Python program
@@ -17,8 +18,10 @@ class TestRunB(unittest.TestCase):
 		language = "Python"
 		output = "testfiles/" + "output2.txt"
 		Input = "testfiles/" + "input.txt"
-		self.assertEqual(run(program_name, language, output, Input),
+		r = cr.coderunner(program_name, language, output, Input)
+		self.assertEqual(r.run(),
                      "Accepted", "Something Wrong")
+
 #test for C program
 class TestRunC(unittest.TestCase):
 	def test_run(self):
@@ -26,7 +29,8 @@ class TestRunC(unittest.TestCase):
 		language = "C"
 		output = "testfiles/" + "output3.txt"
 		Input = "testfiles/" + "input2.txt"
-		self.assertEqual(run(program_name, language, output, Input),
+		r = cr.coderunner(program_name, language, output, Input)
+		self.assertEqual(r.run(),
                      "Accepted", "Something Wrong")
 
 #test for C++ program
@@ -36,7 +40,8 @@ class TestRunD(unittest.TestCase):
 		language = "C++"
 		output = "testfiles/" + "output4.txt"
 		Input = "testfiles/" + "input3.txt"
-		self.assertEqual(run(program_name, language, output, Input),
+		r = cr.coderunner(program_name, language, output, Input)
+		self.assertEqual(r.run(),
                      "Accepted", "Something Wrong")
 
 

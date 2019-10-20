@@ -22,17 +22,16 @@ python3 tests.py
 
 ### Usage
 
-Import the `run` method from *CodeRunner* module.
-
 ```python
-from CodeRunner.run import run
+import CodeRunner.run as cr
 
-program_name = "test_python.py"
+program_name = "testfiles/" + "test_python.py"
 language = "Python"
-output = "output.txt"
+output = "testfiles/" + "output2.txt"
+Input = "testfiles/" + "input.txt"
+r = cr.coderunner(program_name, language, output, Input)
 
-status = run(program_name, language, output)
-print(status)
+print(r.run())
 ```
 
 
