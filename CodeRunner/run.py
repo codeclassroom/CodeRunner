@@ -34,7 +34,7 @@ class coderunner:
 		self.inp = inp
 		self.language_id = languages[lang]
 
-	def readCode(self):
+	def __readCode(self):
 		"""
 		Read Source Code & return as string
 		"""
@@ -43,39 +43,38 @@ class coderunner:
 		return data
 
 
-	def readExpectedOutput(self):
+	def __readExpectedOutput(self):
 		with open(self.output, 'r') as out:
 			data = out.read()
 		return data
 
 
-	def readStandardInput(self):
+	def __readStandardInput(self):
 		with open(self.inp, 'r') as out:
 			data = out.read()
 		return data
 
 
-	def readStatus(self, token):
+	def __readStatus(self, token):
 		"""
 		Check Submission status
 		"""
 		while True:
 			req = requests.get(API_URL + token['token'])
-			response = req.json()
-			status = response['status']['description']
+			self.__response = req.json()
+			self.__memory = self.__response["memory"]
+			self.__time = self.__response["time"]
+			status = self.__response['status']['description']
 			if status != "Processing" and status != "In Queue":
 				break
-			print(status)
 
 		if status == "Accepted":
-			#print(f'Output : \n{response["stdout"]}')
-			print(f'Time : {response["time"]}')
-			print("Compile Success ✅")
+			self.__stdout = self.__response["stdout"]
 			return status
 		else:
-			return response['status']['description']
+			return self.__response['status']['description']
 
-	def submit(self):
+	def __submit(self):
 		if self.inp != None:
 			api_params['stdin'] = self.inp
 		
@@ -88,16 +87,34 @@ class coderunner:
 		return token
 
 
+	def getStandardOutput(self):
+		return self.__stdout
+
+
+	def getMemory(self):
+		return self.__memory
+
+
+	def getError(self):
+		if self.__response['stderr'] != '':
+			return self.__response['stderr']
+		return None
+
+
+	def getTime(self):
+		return self.__time
+
+
 	def run(self):
-		self.program_name = self.readCode()
-		self.output = self.readExpectedOutput()
+		self.program_name = self.__readCode()
+		self.output = self.__readExpectedOutput()
 		
 		if self.inp != None:
-			self.inp = self.readStandardInput()
-			token = self.submit()
-			status = self.readStatus(token)
+			self.inp = self.__readStandardInput()
+			token = self.__submit()
+			status = self.__readStatus(token)
 		else:
-			token = self.submit()
-			status = self.readStatus(token)
+			token = self.__submit()
+			status = self.__readStatus(token)
 		return status
 

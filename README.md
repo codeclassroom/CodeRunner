@@ -31,7 +31,13 @@ output = "testfiles/" + "output2.txt"
 Input = "testfiles/" + "input.txt"
 r = cr.coderunner(program_name, language, output, Input)
 
-print(r.run())
+print("Status : " + r.run())
+if r.getError() != None:
+	print("Error : " + r.getError())
+else:
+	print("stdout : " + r.getStandardOutput())
+print("Execution Time : " + r.getTime())
+print("Memory : " + str(r.getMemory()))
 ```
 
 
