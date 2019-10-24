@@ -27,9 +27,12 @@ API_URL = "https://api.judge0.com/submissions/"
 
 class coderunner:
 
-	def __init__(self, program_name, lang, output, inp = None):
+	def __init__(self, program_name: str, lang: str, output: str, inp: str = None):
 		self.program_name = program_name
 		self.lang = lang
+		if lang not in languages:
+			raise ValueError(f"{lang} is not a supported languige {languages.keys()}")
+		
 		self.output = output
 		self.inp = inp
 		self.language_id = languages[lang]
@@ -55,7 +58,7 @@ class coderunner:
 		return data
 
 
-	def __readStatus(self, token):
+	def __readStatus(self, token: str):
 		"""
 		Check Submission status
 		"""

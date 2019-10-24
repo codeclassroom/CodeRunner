@@ -23,19 +23,21 @@ python3 tests.py
 ### Usage
 
 ```python
-import CodeRunner.run as cr
+from CodeRunner import run
+import pprint
 
 program_name = "testfiles/" + "test_python.py"
-language = "Python"
+language = "C#"
 output = "testfiles/" + "output2.txt"
 Input = "testfiles/" + "input.txt"
-r = cr.coderunner(program_name, language, output, Input)
+r = run.coderunner(program_name, language, output, Input)
 
 print("Status : " + r.run())
 if r.getError() != None:
-	print("Error : " + r.getError())
+	pprint.pprint("Error : " + r.getError())
 else:
-	print("stdout : " + r.getStandardOutput())
+	print("Standard Output : ")
+	pprint.pprint(r.getStandardOutput())
 print("Execution Time : " + r.getTime())
 print("Memory : " + str(r.getMemory()))
 ```
