@@ -25,7 +25,7 @@ api_params = {
 
 API_URL = "https://api.judge0.com/submissions/"
 
-class coderunner:
+class Run:
 
 	def __init__(self, program_name: str, lang: str, output: str, inp: str = None):
 		self.program_name = program_name
@@ -108,7 +108,7 @@ class coderunner:
 		return self.__time
 
 
-	def run(self):
+	def getStatus(self):
 		self.program_name = self.__readCode()
 		self.output = self.__readExpectedOutput()
 		

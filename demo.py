@@ -1,13 +1,13 @@
-from CodeRunner import run
+from coderunner import coderunner
 import pprint
 
 program_name = "testfiles/" + "test_python.py"
-language = "C#"
+language = "Python"
 output = "testfiles/" + "output2.txt"
 Input = "testfiles/" + "input.txt"
-r = run.coderunner(program_name, language, output, Input)
+r = coderunner.Run(program_name, language, output, Input)
 
-print("Status : " + r.run())
+print("Status : " + r.getStatus())
 if r.getError() != None:
 	pprint.pprint("Error : " + r.getError())
 else:
