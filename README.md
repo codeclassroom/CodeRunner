@@ -6,6 +6,9 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](http://makeapullrequest.com)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/codeclassroom/CodeRunner?style=plastic)
 
+### Prerequisites
+1. Python 3.6+
+2. virtualenv
 
 ### Installation
 1. Create virtual environment.
@@ -64,3 +67,11 @@ print("Memory : " + str(r.getMemory()))
 
 - Twitter: [@bhupeshimself](https://twitter.com/bhupeshimself)
 - DEV: [bhupesh](https://dev.to/bhupesh)
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 👋 Contributing
+
+Please read the [CONTRIBUTING](CONTRIBUTING.md) file for the process of submitting pull requests to us.
