@@ -1,5 +1,10 @@
 # CodeRunner 🏃
-> The future code runner for CodeClassroom (_WIP_)
+> [Judge0 API](https://api.judge0.com/) Interface written in Python
+
+[![GitHub license](https://img.shields.io/github/license/codeclassroom/CodeRunner)](https://github.com/codeclassroom/CodeRunner/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/codeclassroom/CodeRunner?color=blueviolet)](https://github.com/codeclassroom/CodeRunner/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](http://makeapullrequest.com)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/codeclassroom/CodeRunner?style=plastic)
 
 
 ### Installation
