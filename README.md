@@ -29,9 +29,13 @@ python3 tests.py
 ```
 
 ### Usage
+- Install the package.
+```bash
+pip install coderunner
+```
 
 ```python
-from coderunner import coderunner
+import coderunner
 import pprint
 
 program_name = "testfiles/" + "test_python.py"
