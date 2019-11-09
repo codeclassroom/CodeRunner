@@ -11,5 +11,5 @@ script:
   - python tests.py
   - isort --check-only --recursive coderunner
   - black --check --diff coderunner
-  - flake8 coderunner --max-line-length=88
-  - pylint coderunner --disable=bad-continuation,invalid-name
+  - flake8 coderunner --max-line-length=88 --ignore=F401
+  - pylint coderunner --disable=bad-continuation,invalid-name,too-many-instance-attributes
