@@ -9,7 +9,7 @@ install:
   - pip install isort black flake8 pylint
 script:
   - python tests.py
-  - isort --check-only --recursive plagcheck
-  - black --check --diff plagcheck
-  - flake8 plagcheck --max-line-length=88
-  - pylint plagcheck --disable=bad-continuation,invalid-name
+  - isort --check-only --recursive coderunner
+  - black --check --diff coderunner
+  - flake8 coderunner --max-line-length=88
+  - pylint coderunner --disable=bad-continuation,invalid-name
