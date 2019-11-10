@@ -1,4 +1,8 @@
-"""coderunner helps you run your programs on Judge0's Server"""
+"""
+coderunner.py
+====================================
+The core module of CodeRunner
+"""
 import requests
 
 # language IDs on judge0, see README.md
@@ -22,10 +26,16 @@ API_URL = "https://api.judge0.com/submissions/"
 
 class Run:
     """
-    Initialize program data like name,expected input/output etc
+    Args:
+        - Source Code path
+        - Language
+        - Expected Output File Path
+        - Standard Input File Path
     """
 
     def __init__(self, program_name: str, lang: str, output: str, inp: str = None):
+        """Constructor method
+        """
         self.program_name = program_name
         self.lang = lang
         if lang not in languages:
@@ -40,9 +50,6 @@ class Run:
         self.__stdout = None
 
     def __readCode(self):
-        """
-        Read Source Code & return as string
-        """
         with open(self.program_name, "r") as myfile:
             data = myfile.read()
         return data
@@ -90,18 +97,28 @@ class Run:
     def getStandardOutput(self):
         """
         Return the standard output of the program
+        
+        :param: None
+        :rtype: String
         """
         return self.__stdout
 
     def getMemory(self):
         """
-        Return the memory used by the program (in bytes)
+        Return the memory used by the program (in kilobytes)
+        
+        :param: None
+        :return: Return the memory for eg 3564 KiloBytes
+        :rtype: String
         """
         return self.__memory
 
     def getError(self):
         """
         Return any error occured during program execution
+        
+        :param: None
+        :rtype: String
         """
         if self.__response["stderr"] != "":
             return self.__response["stderr"]
@@ -110,12 +127,20 @@ class Run:
     def getTime(self):
         """
         Return execution time used by the program
+
+        :param: None
+        :return: Returns the execution time used by Source Code for e.g 0.037 secs 
+        :rtype: String
         """
         return self.__time
 
     def getStatus(self):
         """
         Submits the program on Judge0's server and returns its status
+        
+        :param: None
+        :return: Returns either `Accepted` or `Run Time Error`
+        :rtype: String
         """
         self.program_name = self.__readCode()
         self.output = self.__readExpectedOutput()
