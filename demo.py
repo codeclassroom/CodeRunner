@@ -12,6 +12,6 @@ if r.getError() != None:
 	pprint.pprint("Error : " + r.getError())
 else:
 	print("Standard Output : ")
-	pprint.pprint(r.getStandardOutput())
+	pprint.pprint(r.getOutput())
 print("Execution Time : " + r.getTime())
 print("Memory : " + str(r.getMemory()))

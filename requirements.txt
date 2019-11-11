@@ -1,1 +1,5 @@
 requests==2.20.0
+isort
+black
+flake8
+pylint

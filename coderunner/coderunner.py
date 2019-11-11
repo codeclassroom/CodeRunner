@@ -3,9 +3,11 @@ coderunner.py
 ====================================
 The core module of CodeRunner
 """
+import os
+
 import requests
 
-# language IDs on judge0, see README.md
+# language IDs on judge0, see Documentation
 languages = {"C++": 10, "Java": 27, "Python": 34, "C": 4}
 
 api_params = {
@@ -22,35 +24,51 @@ api_params = {
 }
 
 API_URL = "https://api.judge0.com/submissions/"
+FIELDS = "?fields=stdout,memory,time,status,stderr,exit_code,created_at"
 
 
 class Run:
     """
     Args:
-        - Source Code path
+        - Source Code
         - Language
-        - Expected Output File Path
-        - Standard Input File Path
+        - Expected Output
+        - Standard Input (Optional)
+        - path (optional)
     """
 
-    def __init__(self, program_name: str, lang: str, output: str, inp: str = None):
-        """Constructor method
-        """
-        self.program_name = program_name
-        self.lang = lang
+    def __init__(
+        self, source: str, lang: str, output: str, inp: str = None, path: bool = True
+    ):
+
+        self.path = path
         if lang not in languages:
             raise ValueError(f"{lang} is not a supported language {languages.keys()}")
-
-        self.output = output
-        self.inp = inp
+        self.lang = lang
         self.language_id = languages[lang]
         self.__response = None
         self.__memory = None
         self.__time = None
         self.__stdout = None
 
+        if self.path:
+            if not os.path.exists(source):
+                raise OSError(f"{source} is not a valid file path")
+            self.source = source
+
+            if not os.path.exists(output):
+                raise OSError(f"{output} is not a valid file path")
+            self.output = output
+
+            if inp is not None and not os.path.exists(inp):
+                raise OSError(f"{inp} is not a valid file path")
+            self.inp = inp
+        self.source = source
+        self.output = output
+        self.inp = inp
+
     def __readCode(self):
-        with open(self.program_name, "r") as myfile:
+        with open(self.source, "r") as myfile:
             data = myfile.read()
         return data
 
@@ -69,7 +87,7 @@ class Run:
         Check Submission status
         """
         while True:
-            req = requests.get(API_URL + token["token"])
+            req = requests.get(API_URL + token["token"] + FIELDS)
             self.__response = req.json()
             self.__memory = self.__response["memory"]
             self.__time = self.__response["time"]
@@ -88,37 +106,39 @@ class Run:
 
         api_params["expected_output"] = self.output
         api_params["language_id"] = self.language_id
-        api_params["source_code"] = self.program_name
+        api_params["source_code"] = self.source
 
         res = requests.post(API_URL, data=api_params)
         token = res.json()
         return token
 
-    def getStandardOutput(self):
+    def getSubmissionDate(self):
         """
-        Return the standard output of the program
+        return submission date/time of program
+        """
+        return self.__response["created_at"]
 
-        :param: None
-        :rtype: String
+    def getExitCode(self):
+        """
+        return exitcode of program (0 or 1)
+        """
+        return self.__response["exit_code"]
+
+    def getOutput(self):
+        """
+        return standard output of program
         """
         return self.__stdout
 
     def getMemory(self):
         """
-        Return the memory used by the program (in kilobytes)
-
-        :param: None
-        :return: Return the memory for eg 3564 KiloBytes
-        :rtype: String
+        return memory used by the program
         """
         return self.__memory
 
     def getError(self):
         """
-        Return any error occured during program execution
-
-        :param: None
-        :rtype: String
+        return any error message occured during execution of program
         """
         if self.__response["stderr"] != "":
             return self.__response["stderr"]
@@ -126,30 +146,21 @@ class Run:
 
     def getTime(self):
         """
-        Return execution time used by the program
-
-        :param: None
-        :return: Returns the execution time used by Source Code for e.g 0.037 secs
-        :rtype: String
+        return execution time of program
         """
         return self.__time
 
     def getStatus(self):
         """
-        Submits the program on Judge0's server and returns its status
-
-        :param: None
-        :return: Returns either `Accepted` or `Run Time Error`
-        :rtype: String
+        submit the source code on judge0's server & return status
         """
-        self.program_name = self.__readCode()
-        self.output = self.__readExpectedOutput()
+        if self.path:
+            if self.inp is not None:
+                self.inp = self.__readStandardInput()
+            self.source = self.__readCode()
+            self.output = self.__readExpectedOutput()
 
-        if self.inp is not None:
-            self.inp = self.__readStandardInput()
-            token = self.__submit()
-            status = self.__readStatus(token)
-        else:
-            token = self.__submit()
-            status = self.__readStatus(token)
+        token = self.__submit()
+        status = self.__readStatus(token)
+
         return status
