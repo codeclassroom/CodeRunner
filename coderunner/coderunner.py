@@ -97,7 +97,7 @@ class Run:
     def getStandardOutput(self):
         """
         Return the standard output of the program
-        
+
         :param: None
         :rtype: String
         """
@@ -106,7 +106,7 @@ class Run:
     def getMemory(self):
         """
         Return the memory used by the program (in kilobytes)
-        
+
         :param: None
         :return: Return the memory for eg 3564 KiloBytes
         :rtype: String
@@ -116,7 +116,7 @@ class Run:
     def getError(self):
         """
         Return any error occured during program execution
-        
+
         :param: None
         :rtype: String
         """
@@ -129,7 +129,7 @@ class Run:
         Return execution time used by the program
 
         :param: None
-        :return: Returns the execution time used by Source Code for e.g 0.037 secs 
+        :return: Returns the execution time used by Source Code for e.g 0.037 secs
         :rtype: String
         """
         return self.__time
@@ -137,7 +137,7 @@ class Run:
     def getStatus(self):
         """
         Submits the program on Judge0's server and returns its status
-        
+
         :param: None
         :return: Returns either `Accepted` or `Run Time Error`
         :rtype: String
