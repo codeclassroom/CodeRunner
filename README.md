@@ -14,20 +14,19 @@
 ## Usage
 
 - Install `coderunner`.
-```bash
-pip install coderunner
-```
+
+`pip install coderunner`
 
 ## Documentation
 
-[CodeRunner Documentation](https://coderunner.readthedocs.io/en/latest/)
+> [CodeRunner Documentation](https://coderunner.readthedocs.io/en/latest/)
 
 
 ## Testing
 
 ##### Prerequisites
-1. Python 3.6+
-2. virtualenv
+- Python 3.6+
+- virtualenv
 
 1. Create virtual environment.
 ```bash
@@ -43,7 +42,7 @@ pip install -r requirements.txt
 ```
 4. Run tests.
 ```bash
-python3 tests.py
+python tests.py
 ```
 5. Lint the project with
 ```bash
