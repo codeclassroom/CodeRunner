@@ -7,9 +7,13 @@ python:
 install:
   - pip install -r requirements.txt
   - pip install isort black flake8 pylint
+  - pip install codecov
 script:
   - python tests.py
+  - coverage run tests.py
   - isort --check-only --recursive coderunner
   - black --check --diff coderunner
   - flake8 coderunner --max-line-length=88 --ignore=F401
   - pylint coderunner --disable=bad-continuation,invalid-name,too-many-instance-attributes,too-many-arguments
+after_success:
+  - codecov
