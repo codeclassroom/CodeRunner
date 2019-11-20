@@ -12,18 +12,46 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](http://makeapullrequest.com)
 
 
+## Installation
+
+Install using `pip` from PyPI
+
+```bash
+pip install coderunner
+```
+
+or directly from GitHub if you cannot wait to test new features
+
+```bash
+pip install git+https://github.com/codeclassroom/CodeRunner.git
+```
 ## Usage
 
-- Install `coderunner`.
+```python
 
-`pip install coderunner`
+import coderunner
+
+program_name = "path-to/test_python.py"
+language = "Python"
+output = "path-to/output.txt"
+Input = "path-to/input.txt"
+
+# use this if you have a standard input to Program
+r = coderunner.Run(program_name, language, output, Input)
+
+# otherwise
+r = coderunner.Run(program_name, language, output)
+
+# if not using file paths
+r = coderunner.Run("Hello, World", language, "Hello, World", path=False)
+```
 
 ## Documentation
 
 > [CodeRunner Documentation](https://coderunner.readthedocs.io/en/latest/)
 
 
-## Testing
+## Development
 
 ##### Prerequisites
 - Python 3.6+
@@ -50,6 +78,10 @@ python tests.py
 flake8 coderunner --max-line-length=88 --ignore=F401
 pylint coderunner --disable=bad-continuation,invalid-name,too-many-instance-attributes
 ```
+
+## Changelog
+
+Changelog can be found in [Releases](https://github.com/codeclassroom/CodeRunner/releases)
 
 
 ## Author
