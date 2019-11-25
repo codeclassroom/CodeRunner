@@ -2,14 +2,14 @@
 
 > [Judge0 API](https://api.judge0.com/) Interface written in Python
 
+
 ![PyPI](https://img.shields.io/pypi/v/coderunner?color=blue)
 [![Build Status](https://travis-ci.org/codeclassroom/CodeRunner.svg?branch=master)](https://travis-ci.org/codeclassroom/CodeRunner)
 [![codecov](https://codecov.io/gh/codeclassroom/CodeRunner/branch/master/graph/badge.svg)](https://codecov.io/gh/codeclassroom/CodeRunner)
+![PyPI - Format](https://img.shields.io/pypi/format/coderunner?color=orange)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/coderunner)
 [![Documentation Status](https://readthedocs.org/projects/coderunner/badge/?version=latest)](https://coderunner.readthedocs.io/en/latest/?badge=latest)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/coderunner?color=blue)
-[![GitHub license](https://img.shields.io/github/license/codeclassroom/CodeRunner)](https://github.com/codeclassroom/CodeRunner/blob/master/LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](http://makeapullrequest.com)
 
 
 ## Installation
