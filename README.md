@@ -91,6 +91,8 @@ Changelog can be found in [Releases](https://github.com/codeclassroom/CodeRunner
 - Twitter: [@bhupeshimself](https://twitter.com/bhupeshimself)
 - DEV: [bhupesh](https://dev.to/bhupesh)
 
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
 ## 📝 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
