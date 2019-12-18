@@ -1,2 +1,2 @@
 """Import Run() for initializing program data"""
-from coderunner.coderunner import Run
+from coderunner.coderunner import code

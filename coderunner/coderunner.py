@@ -27,7 +27,7 @@ API_URL = "https://api.judge0.com/submissions/"
 FIELDS = "?fields=stdout,memory,time,status,stderr,exit_code,created_at"
 
 
-class Run:
+class code:
     """
     Args:
         - Source Code
@@ -101,12 +101,12 @@ class Run:
         return self.__response["status"]["description"]
 
     def __submit(self):
-        if self.inp is not None:
-            api_params["stdin"] = self.inp
+        if self.program_input is not None:
+            api_params["stdin"] = self.program_input
 
-        api_params["expected_output"] = self.output
+        api_params["expected_output"] = self.program_output
         api_params["language_id"] = self.language_id
-        api_params["source_code"] = self.source
+        api_params["source_code"] = self.source_code
 
         res = requests.post(API_URL, data=api_params)
         token = res.json()
@@ -150,17 +150,24 @@ class Run:
         """
         return self.__time
 
-    def getStatus(self):
+    def run(self):
         """
-        submit the source code on judge0's server & return status
+        submit the source code on judge0's server
         """
+        print(self.path)
+        print(self.inp)
+        print(self.source)
+        print(self.output)
         if self.path:
             if self.inp is not None:
-                self.inp = self.__readStandardInput()
-            self.source = self.__readCode()
-            self.output = self.__readExpectedOutput()
+                self.program_input = self.__readStandardInput()
+            self.source_code = self.__readCode()
+            self.program_output = self.__readExpectedOutput()
 
         token = self.__submit()
-        status = self.__readStatus(token)
+        self.__token = token
+
+    def getStatus(self):
+        status = self.__readStatus(self.__token)
 
         return status

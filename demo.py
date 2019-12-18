@@ -1,17 +1,28 @@
 from coderunner import coderunner
 import pprint
 
-program_name = "testfiles/" + "test_python.py"
+source_code = "testfiles/" + "test_python_input.py"
 language = "Python"
-output = "testfiles/" + "output2.txt"
-Input = "testfiles/" + "input.txt"
-r = coderunner.Run(program_name, language, output, Input)
+output = "testfiles/output/" + "output2.txt"
+Input = "testfiles/input/" + "input.txt"
+r = coderunner.code(source_code, language, output, Input)
 
+# run the code
+r.run()
+
+# get Submission status
 print("Status : " + r.getStatus())
-if r.getError() != None:
-	pprint.pprint("Error : " + r.getError())
+
+r.run()
+
+# get Submission status
+print("Status : " + r.getStatus)
+
+# check if any error occured
+if r.getError() is not None:
+    pprint.pprint("Error : " + r.getError())
 else:
-	print("Standard Output : ")
-	pprint.pprint(r.getOutput())
+    print("Standard Output : ")
+    pprint.pprint(r.getOutput())
 print("Execution Time : " + r.getTime())
 print("Memory : " + str(r.getMemory()))
