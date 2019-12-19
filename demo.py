@@ -10,17 +10,6 @@ r = coderunner.code(source_code, language, output, Input)
 # run the code
 r.run()
 
-# get Submission status
-print("Status : " + r.getStatus())
-
-r.run()
-
-# get Submission status
-print("Status : " + r.getStatus())
-
-r.run()
-
-# get Submission status
 print("Status : " + r.getStatus())
 
 # check if any error occured

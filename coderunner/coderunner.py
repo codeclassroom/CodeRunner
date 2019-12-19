@@ -3,9 +3,10 @@ coderunner.py
 ====================================
 The core module of CodeRunner
 """
+import json
 import os
-
-import requests
+import urllib.parse
+import urllib.request
 
 # language IDs on judge0, see Documentation
 languages = {"C++": 10, "Java": 27, "Python": 34, "C": 4, "Bash": 1}
@@ -87,8 +88,10 @@ class code:
         Check Submission status
         """
         while True:
-            req = requests.get(API_URL + token["token"] + FIELDS)
-            self.__response = req.json()
+            req = urllib.request.urlopen(API_URL + token["token"] + FIELDS)
+            req = req.read()
+
+            self.__response = json.loads(req.decode("utf-8"))
             self.__memory = self.__response["memory"]
             self.__time = self.__response["time"]
             status = self.__response["status"]["description"]
@@ -108,8 +111,11 @@ class code:
         api_params["language_id"] = self.language_id
         api_params["source_code"] = self.source
 
-        res = requests.post(API_URL, data=api_params)
-        token = res.json()
+        post_data = urllib.parse.urlencode(api_params).encode("ascii")
+        req = urllib.request.urlopen(API_URL, post_data)
+        req = req.read()
+        token = json.loads(req.decode("utf-8"))
+
         return token
 
     def getSubmissionDate(self):

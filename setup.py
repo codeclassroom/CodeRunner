@@ -19,6 +19,7 @@ setuptools.setup(
         "Source Code": "https://github.com/codeclassroom/CodeRunner",
         "Funding": "https://www.patreon.com/bePatron?u=18082750",
         "Say Thanks!": "https://github.com/codeclassroom/CodeRunner/issues/new?assignees=&labels=&template=---say-thank-you.md&title=",
+        'Tracker': "https://github.com/codeclassroom/CodeRunner/issues",
     },
     packages=setuptools.find_packages(),
     install_requires=[
