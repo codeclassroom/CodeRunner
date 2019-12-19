@@ -16,7 +16,12 @@ print("Status : " + r.getStatus())
 r.run()
 
 # get Submission status
-print("Status : " + r.getStatus)
+print("Status : " + r.getStatus())
+
+r.run()
+
+# get Submission status
+print("Status : " + r.getStatus())
 
 # check if any error occured
 if r.getError() is not None:

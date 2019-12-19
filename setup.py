@@ -5,14 +5,15 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="coderunner",
-    version="0.4",
-    author="Bhupesh Varshey",
+    version="0.5",
+    license="MIT",
+    author="Bhupesh Varshney",
     author_email="varsheybhupesh@gmail.com",
-    description="Judge0 API Interface written in Python",
+    description="A judge for your programs, run and test your programs through Python",
     keywords='judge0 coderunner judge0-api codeclassroom',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/codeclassroom/CodeRunner",
+    url="https://codeclassroom.github.io/CodeRunner/",
     project_urls={
         "Documentation": "https://coderunner.readthedocs.io/en/latest/",
         "Source Code": "https://github.com/codeclassroom/CodeRunner",
@@ -24,11 +25,12 @@ setuptools.setup(
         'requests',
     ],
     classifiers=[
+        "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3 :: Only",
         "License :: OSI Approved :: MIT License",
-        'Topic :: Software Development :: Build Tools',
         "Topic :: Education",
         "Topic :: Education",
         "Topic :: Software Development",
