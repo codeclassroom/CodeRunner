@@ -31,19 +31,19 @@ pip install git+https://github.com/codeclassroom/CodeRunner.git
 
 import coderunner
 
-program_name = "path-to/test_python.py"
+source_code = "path-to/test_python.py"
 language = "Python"
-output = "path-to/output.txt"
-Input = "path-to/input.txt"
+expected_output = "path-to/output.txt"
+standard_input = "path-to/input.txt"
 
 # use this if you have a standard input to Program
-r = coderunner.Run(program_name, language, output, Input)
+r = coderunner.code(source_code, language, expected_output, standard_input)
 
 # otherwise
-r = coderunner.Run(program_name, language, output)
+r = coderunner.code(source_code, language, expected_output)
 
-# if not using file paths
-r = coderunner.Run("Hello, World", language, "Hello, World", path=False)
+# Use path=False if not using file paths
+r = coderunner.code("Hello, World", language, "Hello, World", path=False)
 ```
 
 ## Documentation
@@ -81,7 +81,7 @@ pylint coderunner --disable=bad-continuation,invalid-name,too-many-instance-attr
 
 ## Changelog
 
-Changelog can be found in [Releases](https://github.com/codeclassroom/CodeRunner/releases)
+Changelog can be found in [CHANGELOG.md](CHANGELOG.md)
 
 
 ## Author

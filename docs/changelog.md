@@ -1,6 +1,6 @@
 # Changelog
 
-See changelog on [GitHub](https://github.com/codeclassroom/CodeRunner/releases)
+See changelog on [GitHub](https://github.com/codeclassroom/CodeRunner/blob/master/CHANGELOG.md)
 
 ## Releases
 See releases on [PyPi](https://pypi.org/project/coderunner/#history)

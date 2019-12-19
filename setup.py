@@ -22,9 +22,6 @@ setuptools.setup(
         'Tracker': "https://github.com/codeclassroom/CodeRunner/issues",
     },
     packages=setuptools.find_packages(),
-    install_requires=[
-        'requests',
-    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
