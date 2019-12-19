@@ -8,7 +8,7 @@ import os
 import requests
 
 # language IDs on judge0, see Documentation
-languages = {"C++": 10, "Java": 27, "Python": 34, "C": 4}
+languages = {"C++": 10, "Java": 27, "Python": 34, "C": 4, "Bash": 1}
 
 api_params = {
     "number_of_runs": "1",
