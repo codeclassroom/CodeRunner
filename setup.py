@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.5",
     license="MIT",
     author="Bhupesh Varshney",
-    author_email="varsheybhupesh@gmail.com",
+    author_email="varshneybhupesh@gmail.com",
     description="A judge for your programs, run and test your programs through Python",
     keywords='judge0 coderunner judge0-api codeclassroom',
     long_description=long_description,
