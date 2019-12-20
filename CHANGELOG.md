@@ -1,5 +1,6 @@
 # Changelog
 
+All notable changes to this project will be documented in this file.
 
 
 ## [0.5] - Dec 20, 2019
@@ -49,6 +50,3 @@ This is effect fixes [#2](https://github.com/codeclassroom/CodeRunner/issues/2).
 
 ## [0.1] - Oct 30, 2019
 - Initial Release
-
-# Releases
-See releases on [PyPi](https://pypi.org/project/coderunner/#history)

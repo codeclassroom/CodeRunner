@@ -1,6 +1,6 @@
 # CodeRunner 🏃
 
-> [Judge0 API](https://api.judge0.com/) Interface written in Python
+> A judge 👨🏽‍⚖️ for your programs, run and test your programs through Python
 
 
 ![PyPI](https://img.shields.io/pypi/v/coderunner?color=blue)
@@ -25,25 +25,26 @@ or directly from GitHub if you cannot wait to test new features
 ```bash
 pip install git+https://github.com/codeclassroom/CodeRunner.git
 ```
+
 ## Usage
 
 ```python
 
 import coderunner
 
-program_name = "path-to/test_python.py"
+source_code = "path-to/test_python.py"
 language = "Python"
-output = "path-to/output.txt"
-Input = "path-to/input.txt"
+expected_output = "path-to/output.txt"
+standard_input = "path-to/input.txt"
 
 # use this if you have a standard input to Program
-r = coderunner.Run(program_name, language, output, Input)
+r = coderunner.code(source_code, language, expected_output, standard_input)
 
 # otherwise
-r = coderunner.Run(program_name, language, output)
+r = coderunner.code(source_code, language, expected_output)
 
-# if not using file paths
-r = coderunner.Run("Hello, World", language, "Hello, World", path=False)
+# Use path=False if not using file paths
+r = coderunner.code("Hello, World", language, "Hello, World", path=False)
 ```
 
 ## Documentation
@@ -79,9 +80,9 @@ flake8 coderunner --max-line-length=88 --ignore=F401
 pylint coderunner --disable=bad-continuation,invalid-name,too-many-instance-attributes
 ```
 
-## Changelog
+## 📝 Changelog
 
-Changelog can be found in [Releases](https://github.com/codeclassroom/CodeRunner/releases)
+See the [CHANGELOG.md](CHANGELOG.md) file for details.
 
 
 ## Author
@@ -93,7 +94,7 @@ Changelog can be found in [Releases](https://github.com/codeclassroom/CodeRunner
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
-## 📝 License
+## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 

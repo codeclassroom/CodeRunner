@@ -3,12 +3,13 @@ coderunner.py
 ====================================
 The core module of CodeRunner
 """
+import json
 import os
-
-import requests
+import urllib.parse
+import urllib.request
 
 # language IDs on judge0, see Documentation
-languages = {"C++": 10, "Java": 27, "Python": 34, "C": 4}
+languages = {"C++": 10, "Java": 27, "Python": 34, "C": 4, "Bash": 1}
 
 api_params = {
     "number_of_runs": "1",
@@ -27,7 +28,7 @@ API_URL = "https://api.judge0.com/submissions/"
 FIELDS = "?fields=stdout,memory,time,status,stderr,exit_code,created_at"
 
 
-class Run:
+class code:
     """
     Args:
         - Source Code
@@ -87,8 +88,11 @@ class Run:
         Check Submission status
         """
         while True:
-            req = requests.get(API_URL + token["token"] + FIELDS)
-            self.__response = req.json()
+            req = urllib.request.Request(API_URL + token["token"] + FIELDS)
+            with urllib.request.urlopen(req) as response:
+                req = response.read()
+
+            self.__response = json.loads(req.decode("utf-8"))
             self.__memory = self.__response["memory"]
             self.__time = self.__response["time"]
             status = self.__response["status"]["description"]
@@ -108,8 +112,12 @@ class Run:
         api_params["language_id"] = self.language_id
         api_params["source_code"] = self.source
 
-        res = requests.post(API_URL, data=api_params)
-        token = res.json()
+        post_data = urllib.parse.urlencode(api_params).encode("ascii")
+        req = urllib.request.Request(API_URL, post_data)
+        with urllib.request.urlopen(req) as response:
+            req = response.read()
+        token = json.loads(req.decode("utf-8"))
+
         return token
 
     def getSubmissionDate(self):
@@ -150,17 +158,24 @@ class Run:
         """
         return self.__time
 
-    def getStatus(self):
+    def run(self):
         """
         submit the source code on judge0's server & return status
         """
-        if self.path:
-            if self.inp is not None:
-                self.inp = self.__readStandardInput()
-            self.source = self.__readCode()
-            self.output = self.__readExpectedOutput()
+        if os.path.exists(self.source):
+            if self.path:
+                if self.inp is not None:
+                    self.inp = self.__readStandardInput()
+                self.source = self.__readCode()
+                self.output = self.__readExpectedOutput()
 
         token = self.__submit()
-        status = self.__readStatus(token)
+        self.__token = token
+
+    def getStatus(self):
+        """
+        Return submission status
+        """
+        status = self.__readStatus(self.__token)
 
         return status

@@ -1,6 +1,6 @@
 # CodeRunner 🏃
 
-> [Judge0 API](https://api.judge0.com/) Interface written in Python
+> A judge 👨🏽‍⚖️ for your programs, run and test your programs through Python
 
 [![Build Status](https://travis-ci.org/codeclassroom/CodeRunner.svg?branch=master)](https://travis-ci.org/codeclassroom/CodeRunner)
 ![PyPI](https://img.shields.io/pypi/v/coderunner?color=blue)

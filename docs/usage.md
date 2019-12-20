@@ -1,35 +1,37 @@
-# API Usage
+# Usage
 
 coderunner provides the following class constructors
 
-### Run(source, lang, output, inp)
+### code(source, lang, output, inp, path)
 
 * **Parameters** :
 	- source : The Source Code
 	- lang : The Programming Language
 	- output : Expected Output of the Program
 	- inp : Standard Input to the program (optional).
-	- path : specify mode of input.Set this to `False` if you are not using file paths (optional)
+	- path : specify mode of input. Set this to `False` if you are not using file paths (optional)
 
 **Demo**:
 ```python
 
 import coderunner
 
-program_name = "path-to/test_python.py"
+source_code = "path-to/test_python.py"
 language = "Python"
-output = "path-to/output.txt"
-Input = "path-to/input.txt"
+expected_output = "path-to/output.txt"
+standard_input = "path-to/input.txt"
 
 # use this if you have a standard input to Program
-r = coderunner.Run(program_name, language, output, Input)
+r = coderunner.code(source_code, language, expected_output, standard_input)
 
 # otherwise
-r = coderunner.Run(program_name, language, output)
+r = coderunner.code(source_code, language, expected_output)
 
-# if not using file paths
-r = coderunner.Run("Hello, World", language, "Hello, World", path=False)
+# Use path=False if not using file paths
+r = coderunner.code("Hello, World", language, "Hello, World", path=False)
 ```
+
+See [demo.py](https://github.com/codeclassroom/CodeRunner/blob/master/demo.py) for a more descriptive usage.
 
 **Pointers ✏**
 
@@ -39,24 +41,53 @@ r = coderunner.Run("Hello, World", language, "Hello, World", path=False)
 	- C++ (g++ 7.2.0)
 	- Java (OpenJDK 8)
 	- Python (3.6.0)
+	- Bash (4.4)
 - Languages should be specified as string like "C++", "Java" etc.
 
 
-Methods available in class `Run()`.
+Methods available in class `code()`.
 
-### 1. getStatus()
-
+### 1. run()
 **Parameters** : `None` <br>
-**Return Type** : `String` <br>
-**Description**: Submits the program on Judge0's server and returns its status. Returns either `Accepted` or `Runtime Error (NZEC)`.<br>
+**Return Type** : `None` <br>
+**Description**: Submits the program on Judge0's server.<br>
 **Demo**:
 ```python
 
-r.getStatus()
-# Accepted or Runtime Error (NZEC)
+r.run()
+
 ```
 
-### 2. getError()
+### 2. getStatus()
+
+**Parameters** : `None` <br>
+**Return Type** : `String` <br>
+**Description**: Returns submission status.<br>
+
+- List of Statuses :
+	- In Queue
+	- Processing
+	- Accepted
+	- Wrong Answer
+	- Time Limit Exceeded
+	- Compilation Error
+	- Runtime Error (SIGSEGV)
+	- Runtime Error (SIGXFSZ)
+	- Runtime Error (SIGFPE)
+	- Runtime Error (SIGABRT)
+	- Runtime Error (NZEC)
+	- Runtime Error (Other)
+	- Internal Error
+	- Exec Format Error
+
+**Demo**:
+```python
+
+status = r.getStatus()
+# Accepted, Wrong Answet etc.
+```
+
+### 3. getError()
 
 **Parameters** : `None` <br>
 **Return Type** : `String` <br>
@@ -64,8 +95,7 @@ r.getStatus()
 **Demo**:
 ```python
 
-r.getError()
-# For e.g
+error = r.getError()
 """
 'Error :   File "main.py", line 2\n'
  '    print("Hello, "  name)\n'
@@ -74,7 +104,7 @@ r.getError()
 """
 ```
 
-### 3. getOutput()
+### 4. getOutput()
 
 **Parameters** : `None` <br>
 **Return Type** : `String` <br>
@@ -82,11 +112,11 @@ r.getError()
 **Demo**:
 ```python
 
-r.getOutput()
-# For e.g 'Hello, World\n'
+stdout = r.getOutput()
+# 'Hello, World\n'
 ```
 
-### 4. getMemory()
+### 5. getMemory()
 
 **Parameters** : `None` <br>
 **Return Type** : `String` <br>
@@ -94,11 +124,11 @@ r.getOutput()
 **Demo**:
 ```python
 
-r.getMemory()
-# For e.g 3688
+memory = r.getMemory()
+# 3688
 ```
 
-### 5. getTime()
+### 6. getTime()
 
 **Parameters** : `None` <br>
 **Return Type** : `String` <br>
@@ -106,11 +136,11 @@ r.getMemory()
 **Demo**:
 ```python
 
-r.getTime()
-# For e.g 0.031 seconds
+time_consumed = r.getTime()
+# 0.031 seconds
 ```
 
-### 6. getExitCode()
+### 7. getExitCode()
 
 **Parameters** : `None` <br>
 **Return Type** : `String` <br>
@@ -118,11 +148,11 @@ r.getTime()
 **Demo**:
 ```python
 
-r.getExitCode()
-# For e.g 0 on Accepted and 1 on Run Time Error
+exit_code = r.getExitCode()
+# 0 on Accepted and 1 on Run Time Error
 ```
 
-### 7. getSubmissionDate()
+### 8. getSubmissionDate()
 
 **Parameters** : `None` <br>
 **Return Type** : `String` <br>
@@ -130,6 +160,6 @@ r.getExitCode()
 **Demo**:
 ```python
 
-r.getSubmissionDate()
-# For e.g 2019-11-11T13:27:15.909Z
+sub_date = r.getSubmissionDate()
+# 2019-11-11T13:27:15.909Z
 ```
