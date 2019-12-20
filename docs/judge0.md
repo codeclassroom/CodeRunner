@@ -1,6 +1,6 @@
 # [judge0](https://judge0.com/)
 
-CodeRunner is powered by judge0 api.<br>
+CodeRunner is powered by Judge0 api.<br>
 
 ### [API Docs](https://api.judge0.com/)
 ### [GItHub Repository](https://github.com/judge0/api)

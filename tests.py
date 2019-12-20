@@ -121,5 +121,74 @@ class TestRunH(unittest.TestCase):
                          "Accepted", "Something Wrong")
 
 
+# test to check ValueError exception
+
+
+class TestRunI(unittest.TestCase):
+
+    def test_run(self):
+        with self.assertRaises(ValueError): coderunner.code(
+            "Hello World",
+            "PHP",
+            "Hello World",
+            path = False
+            )
+
+
+# test to check OSError exception
+
+
+class TestRunJ(unittest.TestCase):
+
+    def test_run(self):
+        with self.assertRaises(OSError): coderunner.code(
+            "Hello World",
+            "C++",
+            "Hello World"
+            )
+
+
+# test to check OSError exception
+
+
+class TestRunK(unittest.TestCase):
+
+    def test_run(self):
+        with self.assertRaises(OSError): coderunner.code(
+            "testfiles/" + "test_c++.cpp",
+            "C++",
+            "Hello World"
+            )
+
+
+# test to check OSError exception
+
+
+class TestRunL(unittest.TestCase):
+
+    def test_run(self):
+        with self.assertRaises(OSError): coderunner.code(
+            "testfiles/" + "test_c++.cpp",
+            "C++",
+            "testfiles/output/" + "output4.txt",
+            "my_input"
+            )
+
+
+# test to check Wrong Answer Status
+
+
+class TestRunM(unittest.TestCase):
+
+    def test_run(self):
+        source_code = "print(\"This will return Wrong Answer\")"
+        language = "Python"
+        output = "Wrong Answer"
+        r = coderunner.code(source_code, language, output, path=False)
+        r.run()
+        self.assertEqual(r.getStatus(),
+                         "Wrong Answer", "Something Wrong")
+
+
 if __name__ == '__main__':
     unittest.main()

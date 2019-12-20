@@ -1,6 +1,6 @@
 # CodeRunner 🏃
 
-> [Judge0 API](https://api.judge0.com/) Interface written in Python
+> A judge 👨🏽‍⚖️ for your programs, run and test your programs through Python
 
 
 ![PyPI](https://img.shields.io/pypi/v/coderunner?color=blue)
@@ -25,6 +25,7 @@ or directly from GitHub if you cannot wait to test new features
 ```bash
 pip install git+https://github.com/codeclassroom/CodeRunner.git
 ```
+
 ## Usage
 
 ```python
@@ -79,9 +80,9 @@ flake8 coderunner --max-line-length=88 --ignore=F401
 pylint coderunner --disable=bad-continuation,invalid-name,too-many-instance-attributes
 ```
 
-## Changelog
+## 📝 Changelog
 
-Changelog can be found in [CHANGELOG.md](CHANGELOG.md)
+See the [CHANGELOG.md](CHANGELOG.md) file for details.
 
 
 ## Author
@@ -93,7 +94,7 @@ Changelog can be found in [CHANGELOG.md](CHANGELOG.md)
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
-## 📝 License
+## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 

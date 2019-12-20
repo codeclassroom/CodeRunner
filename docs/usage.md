@@ -1,4 +1,4 @@
-# API Usage
+# Usage
 
 coderunner provides the following class constructors
 

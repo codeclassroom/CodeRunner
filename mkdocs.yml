@@ -1,13 +1,13 @@
 site_name: CodeRunner
-site_url: https://coderunner.readthedocs.io/en/latest/
+site_url: https://codeclassroom.github.io/CodeRunner/
 repo_url: https://github.com/codeclassroom/CodeRunner
 site_author: Bhupesh Varshney
-site_description: CodeRunner v0.3 Documentation
+site_description: CodeRunner v0.5 Documentation
 copyright: © 2019, Bhupesh Varshney
 nav:
     - Documentation: index.md
     - Installation: installation.md
-    - API Usage: api-usage.md
+    - Usage: usage.md
     - Judge0: judge0.md
     - Changelog: changelog.md
     - About: about.md

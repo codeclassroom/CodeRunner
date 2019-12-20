@@ -1,6 +1,53 @@
 # Changelog
 
-See changelog on [GitHub](https://github.com/codeclassroom/CodeRunner/blob/master/CHANGELOG.md)
 
-## Releases
+
+## [0.5] - Dec x, 2019
+
+### Added
+
+- New instance method - `run()`.
+- `run()` is now used to run the code i.e the code is submitted to Judge0 api using this method.
+- Support for *Bash 4.4*.
+
+### Changed
+- Renamed Class `Run` to `code` for easier usage.
+- `getStatus()`, it now only returns the status in comparison to older versions where it performed multiple functions (submitting code on judge0 api).
+
+### Removed
+ - `requests` as a dependency, Network requests are now 50% faster.
+
+
+## [0.4] - Nov 11, 2019
+
+### Added
+
+- `getSubmissionDate()`, `getExitCode` new methods.
+- Official Documentation.
+
+### Changed
+
+- Class Run `init` - Now you can pass _source code_, _input_ and _output_ to program as strings (limited to file paths in prior versions).
+
+
+## [0.3] - Nov 9, 2019
+
+### Added
+
+- Removed redundant imports
+- Added Module/Class docstrings for documentation
+- Formatted Code
+
+
+## [0.2] - Oct 31, 2019
+
+### Changed
+
+- Fix import requests problem.
+
+
+## [0.1] - Oct 30, 2019
+- Initial Release
+
+# Releases
 See releases on [PyPi](https://pypi.org/project/coderunner/#history)

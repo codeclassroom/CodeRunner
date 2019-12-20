@@ -174,7 +174,6 @@ class code:
         """
         Return submission status
         """
-
         status = self.__readStatus(self.__token)
 
         return status

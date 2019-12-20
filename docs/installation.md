@@ -4,9 +4,13 @@ Installing coderunner is pretty simple, just run
 
 `pip install coderunner`
 
-or to install a specific verison 
+Install a specific verison 
 
-`pip install coderunner==0.3`
+`pip install coderunner==0.4`
+
+or directly from GitHub if you cannot wait to test new features
+
+`pip install git+https://github.com/codeclassroom/CodeRunner.git`
 
 If you have already installed it and want to update
 
