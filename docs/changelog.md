@@ -2,7 +2,7 @@
 
 
 
-## [0.5] - Dec x, 2019
+## [0.5] - Dec 20, 2019
 
 ### Added
 
@@ -12,7 +12,8 @@
 
 ### Changed
 - Renamed Class `Run` to `code` for easier usage.
-- `getStatus()`, it now only returns the status in comparison to older versions where it performed multiple functions (submitting code on judge0 api).
+- `getStatus()`, now only returns the status in comparison to earlier versions where it performed multiple tasks.
+This is effect fixes [#2](https://github.com/codeclassroom/CodeRunner/issues/2).
 
 ### Removed
  - `requests` as a dependency, Network requests are now 50% faster.

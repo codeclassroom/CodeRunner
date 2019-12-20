@@ -31,6 +31,8 @@ r = coderunner.code(source_code, language, expected_output)
 r = coderunner.code("Hello, World", language, "Hello, World", path=False)
 ```
 
+See [demo.py](https://github.com/codeclassroom/CodeRunner/blob/master/demo.py) for a more descriptive usage.
+
 **Pointers ✏**
 
 - In a `Java` program the class name should always be ***`Main`***.<br>
