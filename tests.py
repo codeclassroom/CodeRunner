@@ -127,11 +127,12 @@ class TestRunH(unittest.TestCase):
 class TestRunI(unittest.TestCase):
 
     def test_run(self):
-        with self.assertRaises(ValueError): coderunner.code(
-            "Hello World",
-            "PHP",
-            "Hello World",
-            path = False
+        with self.assertRaises(ValueError):
+            coderunner.code(
+                "Hello World",
+                "PHP",
+                "Hello World",
+                path=False
             )
 
 
@@ -141,10 +142,11 @@ class TestRunI(unittest.TestCase):
 class TestRunJ(unittest.TestCase):
 
     def test_run(self):
-        with self.assertRaises(OSError): coderunner.code(
-            "Hello World",
-            "C++",
-            "Hello World"
+        with self.assertRaises(OSError):
+            coderunner.code(
+                "Hello World",
+                "C++",
+                "Hello World"
             )
 
 
@@ -154,10 +156,11 @@ class TestRunJ(unittest.TestCase):
 class TestRunK(unittest.TestCase):
 
     def test_run(self):
-        with self.assertRaises(OSError): coderunner.code(
-            "testfiles/" + "test_c++.cpp",
-            "C++",
-            "Hello World"
+        with self.assertRaises(OSError):
+            coderunner.code(
+                "testfiles/" + "test_c++.cpp",
+                "C++",
+                "Hello World"
             )
 
 
@@ -167,11 +170,12 @@ class TestRunK(unittest.TestCase):
 class TestRunL(unittest.TestCase):
 
     def test_run(self):
-        with self.assertRaises(OSError): coderunner.code(
-            "testfiles/" + "test_c++.cpp",
-            "C++",
-            "testfiles/output/" + "output4.txt",
-            "my_input"
+        with self.assertRaises(OSError):
+            coderunner.code(
+                "testfiles/" + "test_c++.cpp",
+                "C++",
+                "testfiles/output/" + "output4.txt",
+                "my_input"
             )
 
 

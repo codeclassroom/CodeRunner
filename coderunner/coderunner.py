@@ -88,8 +88,9 @@ class code:
         Check Submission status
         """
         while True:
-            req = urllib.request.urlopen(API_URL + token["token"] + FIELDS)
-            req = req.read()
+            req = urllib.request.Request(API_URL + token["token"] + FIELDS)
+            with urllib.request.urlopen(req) as response:
+                req = response.read()
 
             self.__response = json.loads(req.decode("utf-8"))
             self.__memory = self.__response["memory"]
@@ -112,8 +113,9 @@ class code:
         api_params["source_code"] = self.source
 
         post_data = urllib.parse.urlencode(api_params).encode("ascii")
-        req = urllib.request.urlopen(API_URL, post_data)
-        req = req.read()
+        req = urllib.request.Request(API_URL, post_data)
+        with urllib.request.urlopen(req) as response:
+            req = response.read()
         token = json.loads(req.decode("utf-8"))
 
         return token
