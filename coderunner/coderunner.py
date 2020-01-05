@@ -9,10 +9,9 @@ import urllib.parse
 import urllib.request
 
 # language IDs on judge0, see Documentation
-languages = {"C++": 10, "Java": 27, "Python": 34, "C": 4, "Bash": 1}
+languages = {'Assembly': 45, 'Bash': 46, 'Basic': 47, 'C': 50, 'C++': 54, 'C#': 51, 'Common Lisp': 55, 'D': 56, 'Elixir': 57, 'Erlang': 58, 'Executable': 44, 'Fortran': 59, 'Go': 60, 'Haskell': 61, 'Java': 62, 'JavaScript': 63, 'Lua': 64, 'OCaml': 65, 'Octave': 66, 'Pascal': 67, 'PHP': 68, 'Plain Text': 43, 'Prolog': 69, 'Python2': 70, 'Python3': 71, 'Ruby': 72, 'Rust': 73, 'TypeScript': 74}
 
 api_params = {
-    "number_of_runs": "1",
     "cpu_time_limit": "2",
     "cpu_extra_time": "0.5",
     "wall_time_limit": "5",
@@ -51,6 +50,7 @@ class code:
         self.__memory = None
         self.__time = None
         self.__stdout = None
+        self.languages = list(languages.keys())
 
         if self.path:
             if not os.path.exists(source):
@@ -69,19 +69,28 @@ class code:
         self.inp = inp
 
     def __readCode(self):
-        with open(self.source, "r") as myfile:
-            data = myfile.read()
-        return data
+        try:
+            with open(self.source, "r") as program_file:
+                data = program_file.read()
+            return data
+        except FileNotFoundError as e:
+            raise e
 
     def __readExpectedOutput(self):
-        with open(self.output, "r") as out:
-            data = out.read()
-        return data
+        try:
+            with open(self.output, "r") as exp_out:
+                data = exp_out.read()
+            return data
+        except FileNotFoundError as e:
+            raise e
 
     def __readStandardInput(self):
-        with open(self.inp, "r") as out:
-            data = out.read()
-        return data
+        try:
+            with open(self.inp, "r") as standard_input:
+                data = standard_input.read()
+            return data
+        except FileNotFoundError as e:
+            raise e
 
     def __readStatus(self, token: str):
         """
@@ -121,47 +130,39 @@ class code:
         return token
 
     def getSubmissionDate(self):
-        """
-        return submission date/time of program
-        """
+        """Submission date/time of program"""
         return self.__response["created_at"]
 
     def getExitCode(self):
-        """
-        return exitcode of program (0 or 1)
-        """
+        """Exitcode of program (0 or 1)"""
         return self.__response["exit_code"]
 
     def getOutput(self):
-        """
-        return standard output of program
-        """
+        """Standard output of the program"""
         return self.__stdout
 
     def getMemory(self):
-        """
-        return memory used by the program
-        """
+        """Memory used by the program"""
         return self.__memory
 
     def getError(self):
-        """
-        return any error message occured during execution of program
-        """
+        """Error occured during execution of program"""
         if self.__response["stderr"] != "":
             return self.__response["stderr"]
         return None
 
     def getTime(self):
-        """
-        return execution time of program
-        """
+        """Execution time of program"""
         return self.__time
 
-    def run(self):
-        """
-        submit the source code on judge0's server & return status
-        """
+    def setFlags(self, options: str):
+        """Options for the compiler (i.e. compiler flags)"""
+        api_params["compiler_options"] = options
+
+    def run(self, number_of_runs: int = 1):
+        """Submit the source code on judge0's server & return status"""
+        api_params["number_of_runs"] = number_of_runs
+
         if os.path.exists(self.source):
             if self.path:
                 if self.inp is not None:
@@ -173,9 +174,7 @@ class code:
         self.__token = token
 
     def getStatus(self):
-        """
-        Return submission status
-        """
+        """Submission status"""
         status = self.__readStatus(self.__token)
 
         return status
