@@ -30,28 +30,28 @@ class TestRunB(unittest.TestCase):
         self.assertEqual(r.getStatus(),
                          "Accepted", "Something Wrong")
 
-# test for Python program
+# test for Python3 program
 
 
 class TestRunC(unittest.TestCase):
 
     def test_run(self):
         source_code = "testfiles/" + "test_python.py"
-        language = "Python"
+        language = "Python3"
         output = "testfiles/output/" + "output6.txt"
         r = coderunner.code(source_code, language, output)
         r.run()
         self.assertEqual(r.getStatus(),
                          "Accepted", "Something Wrong")
 
-# test for Python program with input
+# test for Python3 program with input
 
 
 class TestRunD(unittest.TestCase):
 
     def test_run(self):
         source_code = "testfiles/" + "test_python_input.py"
-        language = "Python"
+        language = "Python3"
         output = "testfiles/output/" + "output2.txt"
         Input = "testfiles/input/" + "input.txt"
         r = coderunner.code(source_code, language, output, Input)
@@ -130,7 +130,7 @@ class TestRunI(unittest.TestCase):
         with self.assertRaises(ValueError):
             coderunner.code(
                 "Hello World",
-                "PHP",
+                "fgbh",
                 "Hello World",
                 path=False
             )
@@ -186,7 +186,7 @@ class TestRunM(unittest.TestCase):
 
     def test_run(self):
         source_code = "print(\"This will return Wrong Answer\")"
-        language = "Python"
+        language = "Python3"
         output = "Wrong Answer"
         r = coderunner.code(source_code, language, output, path=False)
         r.run()

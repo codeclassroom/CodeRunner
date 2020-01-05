@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6] - Jan 5, 2020
+
+### Added
+
+- New optional argument, `number_of_runs`  in `run()` method, use this to specify no.of times you want to run the code. Default is set to 1.
+- Ported NEW Languages. CodeRunner now supports all languages provided by Judge0.
+- `setFlags(options)` for setting options for the compiler (i.e. compiler flags).
+- `setArguments(arguments)` for setting Command line arguments for the program.
+
+### Changed
+- Minor internal improvemets.
+
 
 ## [0.5] - Dec 20, 2019
 

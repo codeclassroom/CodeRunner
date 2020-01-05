@@ -4,7 +4,7 @@ coderunner provides the following class constructors
 
 ### code(source, lang, output, inp, path)
 
-* **Parameters** :
+* **Parameters(type)** :
 	- source : The Source Code
 	- lang : The Programming Language
 	- output : Expected Output of the Program
@@ -14,21 +14,21 @@ coderunner provides the following class constructors
 **Demo**:
 ```python
 
-import coderunner
+from coderunner.coderunner import code
 
 source_code = "path-to/test_python.py"
-language = "Python"
+language = "Python3"
 expected_output = "path-to/output.txt"
 standard_input = "path-to/input.txt"
 
 # use this if you have a standard input to Program
-r = coderunner.code(source_code, language, expected_output, standard_input)
+r = code(source_code, language, expected_output, standard_input)
 
 # otherwise
-r = coderunner.code(source_code, language, expected_output)
+r = code(source_code, language, expected_output)
 
 # Use path=False if not using file paths
-r = coderunner.code("Hello, World", language, "Hello, World", path=False)
+r = code("Hello, World", language, "Hello, World", path=False)
 ```
 
 See [demo.py](https://github.com/codeclassroom/CodeRunner/blob/master/demo.py) for a more descriptive usage.
@@ -36,31 +36,37 @@ See [demo.py](https://github.com/codeclassroom/CodeRunner/blob/master/demo.py) f
 **Pointers ✏**
 
 - In a `Java` program the class name should always be ***`Main`***.<br>
-- Currently supported languages :
-	- C (gcc 7.2.0)
-	- C++ (g++ 7.2.0)
-	- Java (OpenJDK 8)
-	- Python (3.6.0)
-	- Bash (4.4)
+- CodeRunner supports all languages provided by Judge0. See full list of supported languages [here](https://jsonpp.judge0.com/?https://api.judge0.com/languages).
+or you can use
+```python
+print(r.languages)
+"""
+['Assembly', 'Bash', 'Basic', 'C', 'C++', 'C#', 'Common Lisp', 'D', 'Elixir', 'Erlang', 'Executable', 'Fortran', 'Go', 'Haskell', 'Java', 'JavaScript', 'Lua', 'OCaml', 'Octave', 'Pascal', 'PHP', 'Plain Text', 'Prolog', 'Python2', 'Python3', 'Ruby', 'Rust', 'TypeScript']
+"""
+```
 - Languages should be specified as string like "C++", "Java" etc.
 
 
 Methods available in class `code()`.
 
 ### 1. run()
-**Parameters** : `None` <br>
-**Return Type** : `None` <br>
+**Parameters(type)** : Number Of Runs (`int`), optional<br>
+**Return Type** : None <br>
 **Description**: Submits the program on Judge0's server.<br>
 **Demo**:
 ```python
 
+# by default the program executes 1 time on server.
 r.run()
+
+# to execute program 2 times, use
+r.run(2)
 
 ```
 
 ### 2. getStatus()
 
-**Parameters** : `None` <br>
+**Parameters(type)** : None <br>
 **Return Type** : `String` <br>
 **Description**: Returns submission status.<br>
 
@@ -89,7 +95,7 @@ status = r.getStatus()
 
 ### 3. getError()
 
-**Parameters** : `None` <br>
+**Parameters(type)** : None <br>
 **Return Type** : `String` <br>
 **Description**: Returns any error occured during program execution.
 **Demo**:
@@ -106,7 +112,7 @@ error = r.getError()
 
 ### 4. getOutput()
 
-**Parameters** : `None` <br>
+**Parameters(type)** : None <br>
 **Return Type** : `String` <br>
 **Description**: Returns the standard output of the program.<br>
 **Demo**:
@@ -118,7 +124,7 @@ stdout = r.getOutput()
 
 ### 5. getMemory()
 
-**Parameters** : `None` <br>
+**Parameters(type)** : None <br>
 **Return Type** : `String` <br>
 **Description**: Returns the memory used by the program (in kilobytes).<br>
 **Demo**:
@@ -130,7 +136,7 @@ memory = r.getMemory()
 
 ### 6. getTime()
 
-**Parameters** : `None` <br>
+**Parameters(type)** : `None` <br>
 **Return Type** : `String` <br>
 **Description**: Returns execution time of the program. <br>
 **Demo**:
@@ -142,7 +148,7 @@ time_consumed = r.getTime()
 
 ### 7. getExitCode()
 
-**Parameters** : `None` <br>
+**Parameters(type)** : None <br>
 **Return Type** : `String` <br>
 **Description**: Returns exit code of program. <br>
 **Demo**:
@@ -154,7 +160,7 @@ exit_code = r.getExitCode()
 
 ### 8. getSubmissionDate()
 
-**Parameters** : `None` <br>
+**Parameters(type)** : None <br>
 **Return Type** : `String` <br>
 **Description**: Returns submission date/time of the program on Judge0's Server. <br>
 **Demo**:
@@ -162,4 +168,28 @@ exit_code = r.getExitCode()
 
 sub_date = r.getSubmissionDate()
 # 2019-11-11T13:27:15.909Z
+```
+
+### 9. setFlags(options)
+
+**Parameters(type)** : Compiler flags (`String`) <br>
+**Return Type** : `None` <br>
+**Description**: Options for the compiler (i.e. compiler flags). <br>
+**Demo**:
+```python
+
+r.setFlags("-O2 -Wall")
+
+```
+
+### 10. setArguments(arguments)
+
+**Parameter Type** : Command line arguments (`String`) <br>
+**Return Type** : `None` <br>
+**Description**: Command line arguments for the program. <br>
+**Demo**:
+```python
+
+r.setArguments()
+
 ```

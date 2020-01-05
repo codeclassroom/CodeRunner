@@ -5,12 +5,12 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="coderunner",
-    version="0.5",
+    version="0.6",
     license="MIT",
     author="Bhupesh Varshney",
     author_email="varshneybhupesh@gmail.com",
     description="A judge for your programs, run and test your programs through Python",
-    keywords='judge0 coderunner judge0-api codeclassroom',
+    keywords='judge0 coderunner judge0api codeclassroom ',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://codeclassroom.github.io/CodeRunner/",

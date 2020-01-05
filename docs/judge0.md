@@ -9,8 +9,7 @@ CodeRunner is powered by Judge0 api.<br>
 The following api parameters are set default by coderunner:
 ```python
 
-api_params = {
-    "number_of_runs": "1",
+{
     "cpu_time_limit": "2",
     "cpu_extra_time": "0.5",
     "wall_time_limit": "5",
