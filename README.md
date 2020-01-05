@@ -77,7 +77,7 @@ python tests.py
 5. Lint the project with
 ```bash
 flake8 coderunner --max-line-length=88 --ignore=F401
-pylint coderunner --disable=bad-continuation,invalid-name,too-many-instance-attributes
+black --check --diff coderunner
 ```
 
 ## 📝 Changelog

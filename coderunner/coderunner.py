@@ -9,7 +9,36 @@ import urllib.parse
 import urllib.request
 
 # language IDs on judge0, see Documentation
-languages = {'Assembly': 45, 'Bash': 46, 'Basic': 47, 'C': 50, 'C++': 54, 'C#': 51, 'Common Lisp': 55, 'D': 56, 'Elixir': 57, 'Erlang': 58, 'Executable': 44, 'Fortran': 59, 'Go': 60, 'Haskell': 61, 'Java': 62, 'JavaScript': 63, 'Lua': 64, 'OCaml': 65, 'Octave': 66, 'Pascal': 67, 'PHP': 68, 'Plain Text': 43, 'Prolog': 69, 'Python2': 70, 'Python3': 71, 'Ruby': 72, 'Rust': 73, 'TypeScript': 74}
+languages = {
+    "Assembly": 45,
+    "Bash": 46,
+    "Basic": 47,
+    "C": 50,
+    "C++": 54,
+    "C#": 51,
+    "Common Lisp": 55,
+    "D": 56,
+    "Elixir": 57,
+    "Erlang": 58,
+    "Executable": 44,
+    "Fortran": 59,
+    "Go": 60,
+    "Haskell": 61,
+    "Java": 62,
+    "JavaScript": 63,
+    "Lua": 64,
+    "OCaml": 65,
+    "Octave": 66,
+    "Pascal": 67,
+    "PHP": 68,
+    "Plain Text": 43,
+    "Prolog": 69,
+    "Python2": 70,
+    "Python3": 71,
+    "Ruby": 72,
+    "Rust": 73,
+    "TypeScript": 74,
+}
 
 api_params = {
     "cpu_time_limit": "2",
@@ -25,6 +54,12 @@ api_params = {
 
 API_URL = "https://api.judge0.com/submissions/"
 FIELDS = "?fields=stdout,memory,time,status,stderr,exit_code,created_at"
+
+
+class ValueTooLargeError(Exception):
+    """Raised when the input value is too large"""
+
+    pass
 
 
 class code:
@@ -157,7 +192,21 @@ class code:
 
     def setFlags(self, options: str):
         """Options for the compiler (i.e. compiler flags)"""
-        api_params["compiler_options"] = options
+        try:
+            if len(options) > 128:
+                raise ValueTooLargeError
+            api_params["compiler_options"] = options
+        except ValueTooLargeError:
+            print("Maximum 128 characters allowed")
+
+    def setArguments(self, arguments: str):
+        """Command line arguments for the program"""
+        try:
+            if len(arguments) > 128:
+                raise ValueTooLargeError
+            api_params["command_line_arguments"] = arguments
+        except ValueTooLargeError:
+            print("Maximum 128 characters allowed")
 
     def run(self, number_of_runs: int = 1):
         """Submit the source code on judge0's server & return status"""

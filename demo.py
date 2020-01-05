@@ -2,12 +2,12 @@ from coderunner import coderunner
 import pprint
 
 source_code = "testfiles/" + "test_python_input.py"
-language = "Python"
+language = "Python3"
 output = "testfiles/output/" + "output2.txt"
 Input = "testfiles/input/" + "input.txt"
 r = coderunner.code(source_code, language, output, Input)
 
-r2 = coderunner.code("print(\"yo\")", "Python", "YO", path=False)
+r2 = coderunner.code("print(\"yo\")", "Python3", "YO", path=False)
 
 # run the code
 r.run()
