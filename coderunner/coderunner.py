@@ -59,8 +59,6 @@ FIELDS = "?fields=stdout,memory,time,status,stderr,exit_code,created_at"
 class ValueTooLargeError(Exception):
     """Raised when the input value is too large"""
 
-    pass
-
 
 class code:
     """
