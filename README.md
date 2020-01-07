@@ -45,6 +45,11 @@ r = coderunner.code(source_code, language, expected_output)
 
 # Use path=False if not using file paths
 r = coderunner.code("Hello, World", language, "Hello, World", path=False)
+
+r.run()
+print(r.getOutput())
+print(r.getError())
+# See Documentation for more methods.
 ```
 
 ## Documentation
@@ -85,7 +90,7 @@ black --check --diff coderunner
 See the [CHANGELOG.md](CHANGELOG.md) file for details.
 
 ## :fire: Powered By
-**[Judge0 api](https://github.com/judge0/api) - Free, robust and scalable open-source online code execution system**
+**[Judge0 API](https://github.com/judge0/api) - Free, robust and scalable open-source online code execution system**
 
 ## Author
 
