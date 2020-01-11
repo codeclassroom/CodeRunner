@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Bhupesh Varshney">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Changelog - CodeRunner</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Changelog";
+    var mkdocs_page_input_path = "changelog.md";
+    var mkdocs_page_url = "/CodeRunner/changelog/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CodeRunner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Documentation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../usage/">Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../judge0/">Judge0</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Changelog</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#changelog">Changelog</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#06-jan-5-2020">[0.6] - Jan 5, 2020</a></li>
+        
+            <li><a class="toctree-l3" href="#05-dec-20-2019">[0.5] - Dec 20, 2019</a></li>
+        
+            <li><a class="toctree-l3" href="#04-nov-11-2019">[0.4] - Nov 11, 2019</a></li>
+        
+            <li><a class="toctree-l3" href="#03-nov-9-2019">[0.3] - Nov 9, 2019</a></li>
+        
+            <li><a class="toctree-l3" href="#02-oct-31-2019">[0.2] - Oct 31, 2019</a></li>
+        
+            <li><a class="toctree-l3" href="#01-oct-30-2019">[0.1] - Oct 30, 2019</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#releases">Releases</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CodeRunner</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Changelog</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/codeclassroom/CodeRunner/edit/master/docs/changelog.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">#</a></h1>
+<h2 id="06-jan-5-2020">[0.6] - Jan 5, 2020<a class="headerlink" href="#06-jan-5-2020" title="Permanent link">#</a></h2>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">#</a></h3>
+<ul>
+<li>New optional argument, <code>number_of_runs</code>  in <code>run()</code> method, use this to specify no.of times you want to run the code. Default is set to 1.</li>
+<li>Ported NEW Languages. CodeRunner now supports all languages provided by Judge0.</li>
+<li><a href="/usage/#9-setflagsoptions"><code>setFlags(options)</code></a> for setting options for the compiler (i.e. compiler flags).</li>
+<li><a href="/usage/#10-setargumentsarguments"><code>setArguments(arguments)</code></a> for setting Command line arguments for the program.</li>
+</ul>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">#</a></h3>
+<ul>
+<li>Minor internal improvemets.</li>
+</ul>
+<h2 id="05-dec-20-2019">[0.5] - Dec 20, 2019<a class="headerlink" href="#05-dec-20-2019" title="Permanent link">#</a></h2>
+<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">#</a></h3>
+<ul>
+<li>New instance method - <code>run()</code>.</li>
+<li><code>run()</code> is now used to run the code i.e the code is submitted to Judge0 api using this method.</li>
+<li>Support for <em>Bash 4.4</em>.</li>
+</ul>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">#</a></h3>
+<ul>
+<li>Renamed Class <code>Run</code> to <code>code</code> for easier usage.</li>
+<li><code>getStatus()</code>, now only returns the status in comparison to earlier versions where it performed multiple tasks.
+This is effect fixes <a href="https://github.com/codeclassroom/CodeRunner/issues/2">#2</a>.</li>
+</ul>
+<h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">#</a></h3>
+<ul>
+<li><code>requests</code> as a dependency, Network requests are now 50% faster.</li>
+</ul>
+<h2 id="04-nov-11-2019">[0.4] - Nov 11, 2019<a class="headerlink" href="#04-nov-11-2019" title="Permanent link">#</a></h2>
+<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">#</a></h3>
+<ul>
+<li><code>getSubmissionDate()</code>, <code>getExitCode</code> new methods.</li>
+<li>Official Documentation.</li>
+</ul>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">#</a></h3>
+<ul>
+<li>Class Run <code>init</code> - Now you can pass <em>source code</em>, <em>input</em> and <em>output</em> to program as strings (limited to file paths in prior versions).</li>
+</ul>
+<h2 id="03-nov-9-2019">[0.3] - Nov 9, 2019<a class="headerlink" href="#03-nov-9-2019" title="Permanent link">#</a></h2>
+<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">#</a></h3>
+<ul>
+<li>Removed redundant imports</li>
+<li>Added Module/Class docstrings for documentation</li>
+<li>Formatted Code</li>
+</ul>
+<h2 id="02-oct-31-2019">[0.2] - Oct 31, 2019<a class="headerlink" href="#02-oct-31-2019" title="Permanent link">#</a></h2>
+<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">#</a></h3>
+<ul>
+<li>Fix import requests problem.</li>
+</ul>
+<h2 id="01-oct-30-2019">[0.1] - Oct 30, 2019<a class="headerlink" href="#01-oct-30-2019" title="Permanent link">#</a></h2>
+<ul>
+<li>Initial Release</li>
+</ul>
+<h1 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">#</a></h1>
+<p>See releases on <a href="https://pypi.org/project/coderunner/#history">PyPi</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../judge0/" class="btn btn-neutral" title="Judge0"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© 2019, Bhupesh Varshney</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/codeclassroom/CodeRunner/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../judge0/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

@@ -1,2 +1,0 @@
-The reverse of the number is: 121
-The number is a palindrome.

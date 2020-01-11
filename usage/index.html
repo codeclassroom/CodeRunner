@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Bhupesh Varshney">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Usage - CodeRunner</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Usage";
+    var mkdocs_page_input_path = "usage.md";
+    var mkdocs_page_url = "/CodeRunner/usage/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CodeRunner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Documentation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Usage</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#usage">Usage</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#codesource-lang-output-inp-path">code(source, lang, output, inp, path)</a></li>
+        
+            <li><a class="toctree-l3" href="#1-run">1. run()</a></li>
+        
+            <li><a class="toctree-l3" href="#2-getstatus">2. getStatus()</a></li>
+        
+            <li><a class="toctree-l3" href="#3-geterror">3. getError()</a></li>
+        
+            <li><a class="toctree-l3" href="#4-getoutput">4. getOutput()</a></li>
+        
+            <li><a class="toctree-l3" href="#5-getmemory">5. getMemory()</a></li>
+        
+            <li><a class="toctree-l3" href="#6-gettime">6. getTime()</a></li>
+        
+            <li><a class="toctree-l3" href="#7-getexitcode">7. getExitCode()</a></li>
+        
+            <li><a class="toctree-l3" href="#8-getsubmissiondate">8. getSubmissionDate()</a></li>
+        
+            <li><a class="toctree-l3" href="#9-setflagsoptions">9. setFlags(options)</a></li>
+        
+            <li><a class="toctree-l3" href="#10-setargumentsarguments">10. setArguments(arguments)</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../judge0/">Judge0</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../changelog/">Changelog</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CodeRunner</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Usage</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/codeclassroom/CodeRunner/edit/master/docs/usage.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h1>
+<p>coderunner provides the following class constructors</p>
+<h3 id="codesource-lang-output-inp-path">code(source, lang, output, inp, path)<a class="headerlink" href="#codesource-lang-output-inp-path" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Parameters(type)</strong> :<ul>
+<li>source : The Source Code</li>
+<li>lang : The Programming Language</li>
+<li>output : Expected Output of the Program</li>
+<li>inp : Standard Input to the program (optional).</li>
+<li>path : specify mode of input. Set this to <code>False</code> if you are not using file paths (optional)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Demo</strong>:</p>
+<pre><code class="python">
+from coderunner.coderunner import code
+
+source_code = &quot;path-to/test_python.py&quot;
+language = &quot;Python3&quot;
+expected_output = &quot;path-to/output.txt&quot;
+standard_input = &quot;path-to/input.txt&quot;
+
+# use this if you have a standard input to Program
+r = code(source_code, language, expected_output, standard_input)
+
+# otherwise
+r = code(source_code, language, expected_output)
+
+# Use path=False if not using file paths
+r = code(&quot;Hello, World&quot;, language, &quot;Hello, World&quot;, path=False)
+</code></pre>
+
+<p>See <a href="https://github.com/codeclassroom/CodeRunner/blob/master/demo.py">demo.py</a> for a more descriptive usage.</p>
+<p><strong>Pointers ✏</strong></p>
+<ul>
+<li>In a <code>Java</code> program the class name should always be <strong><em><code>Main</code></em></strong>.<br></li>
+<li>CodeRunner supports all languages provided by Judge0. See full list of supported languages <a href="https://jsonpp.judge0.com/?https://api.judge0.com/languages">here</a>.
+or you can use</li>
+</ul>
+<pre><code class="python">print(r.languages)
+&quot;&quot;&quot;
+['Assembly', 'Bash', 'Basic', 'C', 'C++', 'C#', 'Common Lisp', 'D', 'Elixir', 'Erlang', 'Executable', 'Fortran', 'Go', 'Haskell', 'Java', 'JavaScript', 'Lua', 'OCaml', 'Octave', 'Pascal', 'PHP', 'Plain Text', 'Prolog', 'Python2', 'Python3', 'Ruby', 'Rust', 'TypeScript']
+&quot;&quot;&quot;
+</code></pre>
+
+<ul>
+<li>Languages should be specified as string like "C++", "Java" etc.</li>
+</ul>
+<p>Methods available in class <code>code()</code>.</p>
+<h3 id="1-run">1. run()<a class="headerlink" href="#1-run" title="Permanent link">#</a></h3>
+<p><strong>Parameters(type)</strong> : Number Of Runs (<code>int</code>), optional<br>
+<strong>Return Type</strong> : None <br>
+<strong>Description</strong>: Submits the program on Judge0's server.<br>
+<strong>Demo</strong>:</p>
+<pre><code class="python">
+# by default the program executes 1 time on server.
+r.run()
+
+# to execute program 2 times, use
+r.run(2)
+
+</code></pre>
+
+<h3 id="2-getstatus">2. getStatus()<a class="headerlink" href="#2-getstatus" title="Permanent link">#</a></h3>
+<p><strong>Parameters(type)</strong> : None <br>
+<strong>Return Type</strong> : <code>String</code> <br>
+<strong>Description</strong>: Returns submission status.<br></p>
+<ul>
+<li>List of Statuses :<ul>
+<li>In Queue</li>
+<li>Processing</li>
+<li>Accepted</li>
+<li>Wrong Answer</li>
+<li>Time Limit Exceeded</li>
+<li>Compilation Error</li>
+<li>Runtime Error (SIGSEGV)</li>
+<li>Runtime Error (SIGXFSZ)</li>
+<li>Runtime Error (SIGFPE)</li>
+<li>Runtime Error (SIGABRT)</li>
+<li>Runtime Error (NZEC)</li>
+<li>Runtime Error (Other)</li>
+<li>Internal Error</li>
+<li>Exec Format Error</li>
+</ul>
+</li>
+</ul>
+<p><strong>Demo</strong>:</p>
+<pre><code class="python">
+status = r.getStatus()
+# Accepted, Wrong Answet etc.
+</code></pre>
+
+<h3 id="3-geterror">3. getError()<a class="headerlink" href="#3-geterror" title="Permanent link">#</a></h3>
+<p><strong>Parameters(type)</strong> : None <br>
+<strong>Return Type</strong> : <code>String</code> <br>
+<strong>Description</strong>: Returns any error occured during program execution.
+<strong>Demo</strong>:</p>
+<pre><code class="python">
+error = r.getError()
+&quot;&quot;&quot;
+'Error :   File &quot;main.py&quot;, line 2\n'
+ '    print(&quot;Hello, &quot;  name)\n'
+ '                        ^\n'
+ 'SyntaxError: invalid syntax\n'
+&quot;&quot;&quot;
+</code></pre>
+
+<h3 id="4-getoutput">4. getOutput()<a class="headerlink" href="#4-getoutput" title="Permanent link">#</a></h3>
+<p><strong>Parameters(type)</strong> : None <br>
+<strong>Return Type</strong> : <code>String</code> <br>
+<strong>Description</strong>: Returns the standard output of the program.<br>
+<strong>Demo</strong>:</p>
+<pre><code class="python">
+stdout = r.getOutput()
+# 'Hello, World\n'
+</code></pre>
+
+<h3 id="5-getmemory">5. getMemory()<a class="headerlink" href="#5-getmemory" title="Permanent link">#</a></h3>
+<p><strong>Parameters(type)</strong> : None <br>
+<strong>Return Type</strong> : <code>String</code> <br>
+<strong>Description</strong>: Returns the memory used by the program (in kilobytes).<br>
+<strong>Demo</strong>:</p>
+<pre><code class="python">
+memory = r.getMemory()
+# 3688
+</code></pre>
+
+<h3 id="6-gettime">6. getTime()<a class="headerlink" href="#6-gettime" title="Permanent link">#</a></h3>
+<p><strong>Parameters(type)</strong> : <code>None</code> <br>
+<strong>Return Type</strong> : <code>String</code> <br>
+<strong>Description</strong>: Returns execution time of the program. <br>
+<strong>Demo</strong>:</p>
+<pre><code class="python">
+time_consumed = r.getTime()
+# 0.031 seconds
+</code></pre>
+
+<h3 id="7-getexitcode">7. getExitCode()<a class="headerlink" href="#7-getexitcode" title="Permanent link">#</a></h3>
+<p><strong>Parameters(type)</strong> : None <br>
+<strong>Return Type</strong> : <code>String</code> <br>
+<strong>Description</strong>: Returns exit code of program. <br>
+<strong>Demo</strong>:</p>
+<pre><code class="python">
+exit_code = r.getExitCode()
+# 0 on Accepted and 1 on Run Time Error
+</code></pre>
+
+<h3 id="8-getsubmissiondate">8. getSubmissionDate()<a class="headerlink" href="#8-getsubmissiondate" title="Permanent link">#</a></h3>
+<p><strong>Parameters(type)</strong> : None <br>
+<strong>Return Type</strong> : <code>String</code> <br>
+<strong>Description</strong>: Returns submission date/time of the program on Judge0's Server. <br>
+<strong>Demo</strong>:</p>
+<pre><code class="python">
+sub_date = r.getSubmissionDate()
+# 2019-11-11T13:27:15.909Z
+</code></pre>
+
+<h3 id="9-setflagsoptions">9. setFlags(options)<a class="headerlink" href="#9-setflagsoptions" title="Permanent link">#</a></h3>
+<p><strong>Parameters(type)</strong> : Compiler flags (<code>String</code>) <br>
+<strong>Return Type</strong> : <code>None</code> <br>
+<strong>Description</strong>: Options for the compiler (i.e. compiler flags). <br>
+<strong>Demo</strong>:</p>
+<pre><code class="python">
+r.setFlags(&quot;-O2 -Wall&quot;)
+
+</code></pre>
+
+<h3 id="10-setargumentsarguments">10. setArguments(arguments)<a class="headerlink" href="#10-setargumentsarguments" title="Permanent link">#</a></h3>
+<p><strong>Parameter Type</strong> : Command line arguments (<code>String</code>) <br>
+<strong>Return Type</strong> : <code>None</code> <br>
+<strong>Description</strong>: Command line arguments for the program. <br>
+<strong>Demo</strong>:</p>
+<pre><code class="python">
+r.setArguments()
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../judge0/" class="btn btn-neutral float-right" title="Judge0">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© 2019, Bhupesh Varshney</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/codeclassroom/CodeRunner/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../judge0/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

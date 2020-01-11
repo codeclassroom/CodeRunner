@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+     <loc>https://codeclassroom.github.io/CodeRunner/</loc>
+     <lastmod>2020-01-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://codeclassroom.github.io/CodeRunner/installation/</loc>
+     <lastmod>2020-01-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://codeclassroom.github.io/CodeRunner/usage/</loc>
+     <lastmod>2020-01-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://codeclassroom.github.io/CodeRunner/judge0/</loc>
+     <lastmod>2020-01-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://codeclassroom.github.io/CodeRunner/changelog/</loc>
+     <lastmod>2020-01-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://codeclassroom.github.io/CodeRunner/about/</loc>
+     <lastmod>2020-01-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+</urlset>

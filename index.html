@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CodeRunner v0.5 Documentation">
+  <meta name="author" content="Bhupesh Varshney">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Documentation - CodeRunner</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Documentation";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/CodeRunner/";
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> CodeRunner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Documentation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#coderunner">CodeRunner 🏃</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#installation">Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#usage">Usage</a></li>
+        
+            <li><a class="toctree-l3" href="#documentation">Documentation</a></li>
+        
+            <li><a class="toctree-l3" href="#development">Development</a></li>
+        
+            <li><a class="toctree-l3" href="#changelog">📝 Changelog</a></li>
+        
+            <li><a class="toctree-l3" href="#author">Author</a></li>
+        
+            <li><a class="toctree-l3" href="#license">📜 License</a></li>
+        
+            <li><a class="toctree-l3" href="#contributing">👋 Contributing</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="usage/">Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="judge0/">Judge0</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="changelog/">Changelog</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">CodeRunner</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Documentation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/codeclassroom/CodeRunner/edit/master/docs/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="coderunner">CodeRunner 🏃<a class="headerlink" href="#coderunner" title="Permanent link">#</a></h1>
+<blockquote>
+<p>A judge 👨🏽‍⚖️ for your programs, run and test your programs through Python</p>
+</blockquote>
+<p><img alt="PyPI" src="https://img.shields.io/pypi/v/coderunner?color=blue" />
+<a href="https://travis-ci.org/codeclassroom/CodeRunner"><img alt="Build Status" src="https://travis-ci.org/codeclassroom/CodeRunner.svg?branch=master" /></a>
+<a href="https://codecov.io/gh/codeclassroom/CodeRunner"><img alt="codecov" src="https://codecov.io/gh/codeclassroom/CodeRunner/branch/master/graph/badge.svg" /></a>
+<img alt="PyPI - Format" src="https://img.shields.io/pypi/format/coderunner?color=orange" />
+<img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/coderunner" />
+<a href="https://coderunner.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/coderunner/badge/?version=latest" /></a>
+<img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/coderunner?color=blue" /></p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
+<p>Install using <code>pip</code> from PyPI</p>
+<pre><code class="bash">pip install coderunner
+</code></pre>
+
+<p>or directly from GitHub if you cannot wait to test new features</p>
+<pre><code class="bash">pip install git+https://github.com/codeclassroom/CodeRunner.git
+</code></pre>
+
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<pre><code class="python">
+import coderunner
+
+source_code = &quot;path-to/test_python.py&quot;
+language = &quot;Python&quot;
+expected_output = &quot;path-to/output.txt&quot;
+standard_input = &quot;path-to/input.txt&quot;
+
+# use this if you have a standard input to Program
+r = coderunner.code(source_code, language, expected_output, standard_input)
+
+# otherwise
+r = coderunner.code(source_code, language, expected_output)
+
+# Use path=False if not using file paths
+r = coderunner.code(&quot;Hello, World&quot;, language, &quot;Hello, World&quot;, path=False)
+</code></pre>
+
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">#</a></h2>
+<blockquote>
+<p><a href="https://coderunner.readthedocs.io/en/latest/">CodeRunner Documentation</a></p>
+</blockquote>
+<h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">#</a></h2>
+<h5 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h5>
+<ul>
+<li>Python 3.6+</li>
+<li>
+<p>virtualenv</p>
+</li>
+<li>
+<p>Create virtual environment.</p>
+</li>
+</ul>
+<pre><code class="bash">virtualenv -p python3 venv &amp;&amp; cd venv &amp;&amp; source bin/activate
+</code></pre>
+
+<ol>
+<li>Clone the repository.</li>
+</ol>
+<pre><code class="bash">git https://github.com/codeclassroom/CodeRunner.git
+</code></pre>
+
+<ol>
+<li>Install Dependencies.</li>
+</ol>
+<pre><code class="bash">pip install -r requirements.txt
+</code></pre>
+
+<ol>
+<li>Run tests.</li>
+</ol>
+<pre><code class="bash">python tests.py
+</code></pre>
+
+<ol>
+<li>Lint the project with</li>
+</ol>
+<pre><code class="bash">flake8 coderunner --max-line-length=88 --ignore=F401
+black --check --diff coderunner
+</code></pre>
+
+<h2 id="changelog">📝 Changelog<a class="headerlink" href="#changelog" title="Permanent link">#</a></h2>
+<p>See the <a href="CHANGELOG.md">CHANGELOG.md</a> file for details.</p>
+<h2 id="author">Author<a class="headerlink" href="#author" title="Permanent link">#</a></h2>
+<p>👥 <strong>Bhupesh Varshney</strong></p>
+<ul>
+<li>Twitter: <a href="https://twitter.com/bhupeshimself">@bhupeshimself</a></li>
+<li>DEV: <a href="https://dev.to/bhupesh">bhupesh</a></li>
+</ul>
+<p><a href="https://forthebadge.com"><img alt="forthebadge" src="https://forthebadge.com/images/badges/built-with-love.svg" /></a></p>
+<h2 id="license">📜 License<a class="headerlink" href="#license" title="Permanent link">#</a></h2>
+<p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
+<h2 id="contributing">👋 Contributing<a class="headerlink" href="#contributing" title="Permanent link">#</a></h2>
+<p>Please read the <a href="CONTRIBUTING.md">CONTRIBUTING</a> guidelines for the process of submitting pull requests to us.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© 2019, Bhupesh Varshney</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/codeclassroom/CodeRunner/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2020-01-11 08:54:16
+-->
