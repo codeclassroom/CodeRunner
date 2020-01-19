@@ -71,7 +71,12 @@ class code:
     """
 
     def __init__(
-        self, source: str, lang: str, output: str, inp: str = None, path: bool = True
+        self,
+        source: str,
+        lang: str,
+        output: str = None,
+        inp: str = None,
+        path: bool = True,
     ):
 
         self.path = path
@@ -90,7 +95,7 @@ class code:
                 raise OSError(f"{source} is not a valid file path")
             self.source = source
 
-            if not os.path.exists(output):
+            if output is not None and not os.path.exists(output):
                 raise OSError(f"{output} is not a valid file path")
             self.output = output
 
@@ -149,8 +154,9 @@ class code:
     def __submit(self):
         if self.inp is not None:
             api_params["stdin"] = self.inp
+        if self.output is not None:
+            api_params["expected_output"] = self.output
 
-        api_params["expected_output"] = self.output
         api_params["language_id"] = self.language_id
         api_params["source_code"] = self.source
 
@@ -214,8 +220,9 @@ class code:
             if self.path:
                 if self.inp is not None:
                     self.inp = self.__readStandardInput()
+                if self.output is not None:
+                    self.output = self.__readExpectedOutput()
                 self.source = self.__readCode()
-                self.output = self.__readExpectedOutput()
 
         token = self.__submit()
         self.__token = token
