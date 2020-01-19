@@ -2,7 +2,7 @@
 name: "\U0001F49F Say thank you"
 about: Just say thanks if you liked CodeRunner
 title: ''
-labels: ''
+labels: 'thanks'
 assignees: ''
 
 ---

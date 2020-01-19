@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.7] - Jan 19, 2020
+
+### Changed
+- `code()` class now ignores `output`. i.e you can just provide source code & language to run a program.
+
+
 ## [0.6] - Jan 5, 2020
 
 ### Added

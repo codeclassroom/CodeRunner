@@ -7,7 +7,7 @@ coderunner provides the following class constructors
 * **Parameters(type)** :
 	- source : The Source Code
 	- lang : The Programming Language
-	- output : Expected Output of the Program
+	- output : Expected Output of the Program (optional).
 	- inp : Standard Input to the program (optional).
 	- path : specify mode of input. Set this to `False` if you are not using file paths (optional)
 
@@ -26,6 +26,9 @@ r = code(source_code, language, expected_output, standard_input)
 
 # otherwise
 r = code(source_code, language, expected_output)
+
+# you can also ignore both fields
+r = code(source_code, language)
 
 # Use path=False if not using file paths
 r = code("Hello, World", language, "Hello, World", path=False)

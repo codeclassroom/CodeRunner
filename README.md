@@ -43,6 +43,9 @@ r = coderunner.code(source_code, language, expected_output, standard_input)
 # otherwise
 r = coderunner.code(source_code, language, expected_output)
 
+# you can also ignore both fields
+r = coderunner.code(source_code, language)
+
 # Use path=False if not using file paths
 r = coderunner.code("Hello, World", language, "Hello, World", path=False)
 
