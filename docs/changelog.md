@@ -2,6 +2,12 @@
 
 
 
+## [0.8] - May 27, 2020
+
+### Fix
+- Fixed bug where compiling a Java program resulted in Compilation Error.
+
+
 ## [0.6] - Jan 5, 2020
 
 ### Added

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="coderunner",
-    version="0.7",
+    version="0.8",
     license="MIT",
     author="Bhupesh Varshney",
     author_email="varshneybhupesh@gmail.com",

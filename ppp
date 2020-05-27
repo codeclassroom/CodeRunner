@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Shell Script to Publish a Python Package
+find_setup_py(){
+	setupfile="setup.py"
+	if [ -f "$setupfile" ]
+	then
+		return
+	else
+		echo -e "\nERROR : $setupfile Not Found."
+		exit
+	fi
+}
+
+remove_old_dist(){
+	echo -e "\033[92;1mRemoving Old Distributions ... \n\033[0m"
+	rm -r dist/
+	rm -r build/
+	ls | grep "egg-info$" | xargs rm -r
+}
+
+create_new_dist(){
+	echo -e "\033[92;1mGenerating new Distributions ... \n\033[0m"
+	python3 setup.py sdist bdist_wheel
+}
+
+run_twine(){
+	echo -e "\033[92;1m\nUploading Package ... \n\033[0m"
+	twine upload dist/*
+}
+
+find_setup_py
+remove_old_dist
+create_new_dist
+run_twine

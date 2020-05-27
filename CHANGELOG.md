@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.8] - May 27, 2020
+
+### Fix
+- Fixed bug where compiling a Java program resulted in Compilation Error.
+
+
 ## [0.7] - Jan 19, 2020
 
 ### Changed

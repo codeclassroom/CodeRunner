@@ -48,7 +48,7 @@ api_params = {
     "stack_limit": "64000",
     "max_processes_and_or_threads": "30",
     "enable_per_process_and_thread_time_limit": "false",
-    "enable_per_process_and_thread_memory_limit": "true",
+    "enable_per_process_and_thread_memory_limit": "false",
     "max_file_size": "1024",
 }
 
