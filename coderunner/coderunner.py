@@ -52,7 +52,13 @@ api_params = {
     "max_file_size": "1024",
 }
 
-API_URL = "https://api.judge0.com/submissions/"
+HEADERS = {
+    "x-rapidapi-host": "judge0.p.rapidapi.com",
+    "useQueryString": True
+}
+
+HOST_URL = "https://judge0.p.rapidapi.com/"
+API_URL = "https://judge0.p.rapidapi.com/submissions/"
 FIELDS = "?fields=stdout,memory,time,status,stderr,exit_code,created_at"
 
 
@@ -135,7 +141,7 @@ class code:
         Check Submission status
         """
         while True:
-            req = urllib.request.Request(API_URL + token["token"] + FIELDS)
+            req = urllib.request.Request(API_URL + token["token"] + FIELDS, headers=HEADERS)
             with urllib.request.urlopen(req) as response:
                 req = response.read()
 
@@ -161,12 +167,16 @@ class code:
         api_params["source_code"] = self.source
 
         post_data = urllib.parse.urlencode(api_params).encode("ascii")
-        req = urllib.request.Request(API_URL, post_data)
+        req = urllib.request.Request(API_URL, post_data, headers=HEADERS)
         with urllib.request.urlopen(req) as response:
             req = response.read()
         token = json.loads(req.decode("utf-8"))
 
         return token
+
+    def authenticate(self, key: str):
+        self.API_KEY = key
+        HEADERS["x-rapidapi-key"] = self.API_KEY
 
     def getSubmissionDate(self):
         """Submission date/time of program"""
