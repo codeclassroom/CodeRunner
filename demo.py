@@ -14,7 +14,7 @@ Input = "testfiles/input/" + "input.txt"
 API_KEY = os.environ["API_KEY"]
 
 r = coderunner.code(source_code, language, output, Input)
-r.authenticate(API_KEY)
+r.api(key=API_KEY)
 
 # r2 = coderunner.code("print(\"yo\")", "Python3", "YO", path=False)
 

@@ -57,13 +57,19 @@ HEADERS = {
     "useQueryString": True
 }
 
-HOST_URL = "https://judge0.p.rapidapi.com/"
-API_URL = "https://judge0.p.rapidapi.com/submissions/"
+API_URL = "https://judge0.p.rapidapi.com/"
+#API_URL = "https://judge0.p.rapidapi.com/submissions/"
 FIELDS = "?fields=stdout,memory,time,status,stderr,exit_code,created_at"
 
 
 class ValueTooLargeError(Exception):
     """Raised when the input value is too large"""
+
+
+class InvalidURL(Exception):
+    """Raise when api_url is invalid"""
+    def __init__(self, message):
+        super.__init__(message)
 
 
 class code:
@@ -138,10 +144,10 @@ class code:
 
     def __readStatus(self, token: str):
         """
-        Check Submission status
+        Check Submission Status
         """
         while True:
-            req = urllib.request.Request(API_URL + token["token"] + FIELDS, headers=HEADERS)
+            req = urllib.request.Request(f'{self.API_URL}submissions/{token["token"]}{FIELDS}', headers=HEADERS)
             with urllib.request.urlopen(req) as response:
                 req = response.read()
 
@@ -167,16 +173,25 @@ class code:
         api_params["source_code"] = self.source
 
         post_data = urllib.parse.urlencode(api_params).encode("ascii")
-        req = urllib.request.Request(API_URL, post_data, headers=HEADERS)
+        req = urllib.request.Request(f'{API_URL}submissions/', post_data, headers=HEADERS)
         with urllib.request.urlopen(req) as response:
             req = response.read()
         token = json.loads(req.decode("utf-8"))
 
         return token
 
-    def authenticate(self, key: str):
+    def api(self, key: str, url: str = None):
+        """Setup API url and key"""
+        HEADERS["x-rapidapi-key"] = key
         self.API_KEY = key
-        HEADERS["x-rapidapi-key"] = self.API_KEY
+        if url is None:
+            self.API_URL = API_URL
+        else:
+            user_api_url = urllib.parse.urlparse(url)
+            if user_api_url.scheme and user_api_url.netloc:
+                self.API_URL = url
+            else:
+                raise InvalidURL("Invalid API URL")
 
     def getSubmissionDate(self):
         """Submission date/time of program"""
