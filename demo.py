@@ -3,6 +3,7 @@ import pprint
 import os
 
 from dotenv import load_dotenv
+
 load_dotenv()
 
 source_code = "testfiles/" + "test_python_input.py"
@@ -14,6 +15,8 @@ Input = "testfiles/input/" + "input.txt"
 API_KEY = os.environ["API_KEY"]
 
 r = coderunner.code(source_code, language, output, Input)
+
+# Necessary step to initialize API keys & URL
 r.api(key=API_KEY)
 
 # r2 = coderunner.code("print(\"yo\")", "Python3", "YO", path=False)
@@ -23,6 +26,7 @@ r.run()
 
 print("Run r :")
 print("Status : " + r.getStatus())
+print("Output : " + r.getOutput())
 
 # r2.run()
 

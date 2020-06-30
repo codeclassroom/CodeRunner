@@ -52,13 +52,8 @@ api_params = {
     "max_file_size": "1024",
 }
 
-HEADERS = {
-    "x-rapidapi-host": "judge0.p.rapidapi.com",
-    "useQueryString": True
-}
+HEADERS = {"x-rapidapi-host": "judge0.p.rapidapi.com", "useQueryString": True}
 
-API_URL = "https://judge0.p.rapidapi.com/"
-#API_URL = "https://judge0.p.rapidapi.com/submissions/"
 FIELDS = "?fields=stdout,memory,time,status,stderr,exit_code,created_at"
 
 
@@ -68,8 +63,9 @@ class ValueTooLargeError(Exception):
 
 class InvalidURL(Exception):
     """Raise when api_url is invalid"""
+
     def __init__(self, message):
-        super.__init__(message)
+        super().__init__(message)
 
 
 class code:
@@ -147,7 +143,9 @@ class code:
         Check Submission Status
         """
         while True:
-            req = urllib.request.Request(f'{self.API_URL}submissions/{token["token"]}{FIELDS}', headers=HEADERS)
+            req = urllib.request.Request(
+                f'{self.API_URL}submissions/{token["token"]}{FIELDS}', headers=HEADERS
+            )
             with urllib.request.urlopen(req) as response:
                 req = response.read()
 
@@ -173,7 +171,9 @@ class code:
         api_params["source_code"] = self.source
 
         post_data = urllib.parse.urlencode(api_params).encode("ascii")
-        req = urllib.request.Request(f'{API_URL}submissions/', post_data, headers=HEADERS)
+        req = urllib.request.Request(
+            f"{self.API_URL}submissions/", post_data, headers=HEADERS
+        )
         with urllib.request.urlopen(req) as response:
             req = response.read()
         token = json.loads(req.decode("utf-8"))
@@ -185,7 +185,7 @@ class code:
         HEADERS["x-rapidapi-key"] = key
         self.API_KEY = key
         if url is None:
-            self.API_URL = API_URL
+            self.API_URL = "https://judge0.p.rapidapi.com/"
         else:
             user_api_url = urllib.parse.urlparse(url)
             if user_api_url.scheme and user_api_url.netloc:

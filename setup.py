@@ -5,12 +5,12 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="coderunner",
-    version="0.8",
+    version="1.0",
     license="MIT",
     author="Bhupesh Varshney",
     author_email="varshneybhupesh@gmail.com",
     description="A judge for your programs, run and test your programs through Python",
-    keywords='judge0 coderunner judge0api codeclassroom ',
+    keywords="judge0 coderunner judge0api codeclassroom ",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://codeclassroom.github.io/CodeRunner/",
@@ -19,7 +19,7 @@ setuptools.setup(
         "Source Code": "https://github.com/codeclassroom/CodeRunner",
         "Funding": "https://www.patreon.com/bePatron?u=18082750",
         "Say Thanks!": "https://github.com/codeclassroom/CodeRunner/issues/new?assignees=&labels=&template=---say-thank-you.md&title=",
-        'Tracker': "https://github.com/codeclassroom/CodeRunner/issues",
+        "Tracker": "https://github.com/codeclassroom/CodeRunner/issues",
     },
     packages=setuptools.find_packages(),
     classifiers=[
@@ -36,5 +36,5 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires=">=3.6",
 )
