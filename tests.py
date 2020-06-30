@@ -1,6 +1,6 @@
 import unittest
 from coderunner import coderunner
-from coderunner.coderunner import InvalidURL
+from coderunner.coderunner import InvalidURL, ValueTooLargeError
 # # test for Java program
 
 
@@ -172,6 +172,28 @@ class TestRunO(unittest.TestCase):
         r = coderunner.code(source_code, language, output, path=False)
         with self.assertRaises(InvalidURL):
             r.api(key="ABCHE", url="ghthth")
+
+
+# test to check ValueTooLargeError for Flags
+class TestRunP(unittest.TestCase):
+    def test_run(self):
+        source_code = 'print("This will return Wrong Answer")'
+        language = "Python3"
+        output = "Wrong Answer"
+        r = coderunner.code(source_code, language, output, path=False)
+        with self.assertRaises(ValueTooLargeError):
+            r.setFlags("qw"*70)
+
+
+# test to check ValueTooLargeError for Arguments
+class TestRunQ(unittest.TestCase):
+    def test_run(self):
+        source_code = 'print("This will return Wrong Answer")'
+        language = "Python3"
+        output = "Wrong Answer"
+        r = coderunner.code(source_code, language, output, path=False)
+        with self.assertRaises(ValueTooLargeError):
+            r.setArguments("qw"*70)
 
 
 if __name__ == "__main__":

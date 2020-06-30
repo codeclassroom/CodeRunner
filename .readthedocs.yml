@@ -6,8 +6,6 @@
 version: 2
 
 # Build documentation with MkDocs
-#mkdocs:
-#  configuration: mkdocs.yml
 mkdocs:
   configuration: mkdocs.yml
   fail_on_warning: false

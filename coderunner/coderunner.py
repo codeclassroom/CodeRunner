@@ -64,9 +64,6 @@ class ValueTooLargeError(Exception):
 class InvalidURL(Exception):
     """Raise when api_url is invalid"""
 
-    def __init__(self, message):
-        super().__init__(message)
-
 
 class code:
     """
@@ -221,21 +218,15 @@ class code:
 
     def setFlags(self, options: str):
         """Options for the compiler (i.e. compiler flags)"""
-        try:
-            if len(options) > 128:
-                raise ValueTooLargeError
-            api_params["compiler_options"] = options
-        except ValueTooLargeError:
-            print("Maximum 128 characters allowed")
+        if len(options) > 128:
+            raise ValueTooLargeError("Maximum 128 characters allowed")
+        api_params["compiler_options"] = options
 
     def setArguments(self, arguments: str):
         """Command line arguments for the program"""
-        try:
-            if len(arguments) > 128:
-                raise ValueTooLargeError
-            api_params["command_line_arguments"] = arguments
-        except ValueTooLargeError:
-            print("Maximum 128 characters allowed")
+        if len(arguments) > 128:
+            raise ValueTooLargeError("Maximum 128 characters allowed")
+        api_params["command_line_arguments"] = arguments
 
     def run(self, number_of_runs: int = 1):
         """Submit the source code on judge0's server & return status"""

@@ -6,7 +6,6 @@ python:
 
 install:
   - pip install -r requirements.txt
-  - pip install isort black flake8 pylint
   - pip install codecov
 script:
   - python tests.py
