@@ -1,7 +1,13 @@
 import unittest
 from coderunner import coderunner
 from coderunner.coderunner import InvalidURL, ValueTooLargeError
+import os
 # # test for Java program
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_KEY = os.environ["API_KEY"]
 
 
 class TestRunA(unittest.TestCase):
@@ -10,6 +16,7 @@ class TestRunA(unittest.TestCase):
         language = "Java"
         output = "testfiles/output/" + "output.txt"
         r = coderunner.code(source_code, language, output)
+        r.api(key=API_KEY)
         r.run()
         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
@@ -24,6 +31,7 @@ class TestRunB(unittest.TestCase):
         output = "testfiles/output/" + "output5.txt"
         Input = "testfiles/input/" + "input4.txt"
         r = coderunner.code(source_code, language, output, Input)
+        r.api(key=API_KEY)
         r.run()
         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
@@ -37,6 +45,7 @@ class TestRunC(unittest.TestCase):
         language = "Python3"
         output = "testfiles/output/" + "output6.txt"
         r = coderunner.code(source_code, language, output)
+        r.api(key=API_KEY)
         r.run()
         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
@@ -51,6 +60,7 @@ class TestRunD(unittest.TestCase):
         output = "testfiles/output/" + "output2.txt"
         Input = "testfiles/input/" + "input.txt"
         r = coderunner.code(source_code, language, output, Input)
+        r.api(key=API_KEY)
         r.run()
         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
@@ -64,6 +74,7 @@ class TestRunE(unittest.TestCase):
         language = "C"
         output = "testfiles/output/" + "output7.txt"
         r = coderunner.code(source_code, language, output)
+        r.api(key=API_KEY)
         r.run()
         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
@@ -78,6 +89,7 @@ class TestRunF(unittest.TestCase):
         output = "testfiles/output/" + "output3.txt"
         Input = "testfiles/input/" + "input2.txt"
         r = coderunner.code(source_code, language, output, Input)
+        r.api(key=API_KEY)
         r.run()
         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
@@ -91,6 +103,7 @@ class TestRunG(unittest.TestCase):
         language = "C++"
         output = "testfiles/output/" + "output8.txt"
         r = coderunner.code(source_code, language, output)
+        r.api(key=API_KEY)
         r.run()
         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
@@ -105,6 +118,7 @@ class TestRunH(unittest.TestCase):
         output = "testfiles/output/" + "output4.txt"
         Input = "testfiles/input/" + "input3.txt"
         r = coderunner.code(source_code, language, output, Input)
+        r.api(key=API_KEY)
         r.run()
         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
@@ -150,17 +164,18 @@ class TestRunL(unittest.TestCase):
             )
 
 
-# # test to check Wrong Answer Status
+# test to check Wrong Answer Status
 
 
-# class TestRunM(unittest.TestCase):
-#     def test_run(self):
-#         source_code = 'print("This will return Wrong Answer")'
-#         language = "Python3"
-#         output = "Wrong Answer"
-#         r = coderunner.code(source_code, language, output, path=False)
-#         r.run()
-#         self.assertEqual(r.getStatus(), "Wrong Answer", "Something Wrong")
+class TestRunM(unittest.TestCase):
+    def test_run(self):
+        source_code = 'print("This will return Wrong Answer")'
+        language = "Python3"
+        output = "Wrong Answer"
+        r = coderunner.code(source_code, language, output, path=False)
+        r.api(key=API_KEY)
+        r.run()
+        self.assertEqual(r.getStatus(), "Wrong Answer", "Something Wrong")
 
 
 # test to check invalid API url
