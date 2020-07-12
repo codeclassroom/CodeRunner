@@ -4,150 +4,150 @@ from coderunner.coderunner import InvalidURL, ValueTooLargeError
 # # test for Java program
 
 
-# class TestRunA(unittest.TestCase):
-#     def test_run(self):
-#         source_code = "testfiles/" + "test_java.java"
-#         language = "Java"
-#         output = "testfiles/output/" + "output.txt"
-#         r = coderunner.code(source_code, language, output)
-#         r.run()
-#         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
+class TestRunA(unittest.TestCase):
+    def test_run(self):
+        source_code = "testfiles/" + "test_java.java"
+        language = "Java"
+        output = "testfiles/output/" + "output.txt"
+        r = coderunner.code(source_code, language, output)
+        r.run()
+        self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
 
-# # test for Java program with input
+# test for Java program with input
 
 
-# class TestRunB(unittest.TestCase):
-#     def test_run(self):
-#         source_code = "testfiles/" + "test_java_input.java"
-#         language = "Java"
-#         output = "testfiles/output/" + "output5.txt"
-#         Input = "testfiles/input/" + "input4.txt"
-#         r = coderunner.code(source_code, language, output, Input)
-#         r.run()
-#         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
+class TestRunB(unittest.TestCase):
+    def test_run(self):
+        source_code = "testfiles/" + "test_java_input.java"
+        language = "Java"
+        output = "testfiles/output/" + "output5.txt"
+        Input = "testfiles/input/" + "input4.txt"
+        r = coderunner.code(source_code, language, output, Input)
+        r.run()
+        self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
 
-# # test for Python3 program
+# test for Python3 program
 
 
-# class TestRunC(unittest.TestCase):
-#     def test_run(self):
-#         source_code = "testfiles/" + "test_python.py"
-#         language = "Python3"
-#         output = "testfiles/output/" + "output6.txt"
-#         r = coderunner.code(source_code, language, output)
-#         r.run()
-#         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
+class TestRunC(unittest.TestCase):
+    def test_run(self):
+        source_code = "testfiles/" + "test_python.py"
+        language = "Python3"
+        output = "testfiles/output/" + "output6.txt"
+        r = coderunner.code(source_code, language, output)
+        r.run()
+        self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
 
-# # test for Python3 program with input
+# test for Python3 program with input
 
 
-# class TestRunD(unittest.TestCase):
-#     def test_run(self):
-#         source_code = "testfiles/" + "test_python_input.py"
-#         language = "Python3"
-#         output = "testfiles/output/" + "output2.txt"
-#         Input = "testfiles/input/" + "input.txt"
-#         r = coderunner.code(source_code, language, output, Input)
-#         r.run()
-#         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
+class TestRunD(unittest.TestCase):
+    def test_run(self):
+        source_code = "testfiles/" + "test_python_input.py"
+        language = "Python3"
+        output = "testfiles/output/" + "output2.txt"
+        Input = "testfiles/input/" + "input.txt"
+        r = coderunner.code(source_code, language, output, Input)
+        r.run()
+        self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
 
-# # test for C program
+# test for C program
 
 
-# class TestRunE(unittest.TestCase):
-#     def test_run(self):
-#         source_code = "testfiles/" + "test_c.c"
-#         language = "C"
-#         output = "testfiles/output/" + "output7.txt"
-#         r = coderunner.code(source_code, language, output)
-#         r.run()
-#         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
+class TestRunE(unittest.TestCase):
+    def test_run(self):
+        source_code = "testfiles/" + "test_c.c"
+        language = "C"
+        output = "testfiles/output/" + "output7.txt"
+        r = coderunner.code(source_code, language, output)
+        r.run()
+        self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
 
-# # test for C program with input
+# test for C program with input
 
 
-# class TestRunF(unittest.TestCase):
-#     def test_run(self):
-#         source_code = "testfiles/" + "test_c_input.c"
-#         language = "C"
-#         output = "testfiles/output/" + "output3.txt"
-#         Input = "testfiles/input/" + "input2.txt"
-#         r = coderunner.code(source_code, language, output, Input)
-#         r.run()
-#         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
+class TestRunF(unittest.TestCase):
+    def test_run(self):
+        source_code = "testfiles/" + "test_c_input.c"
+        language = "C"
+        output = "testfiles/output/" + "output3.txt"
+        Input = "testfiles/input/" + "input2.txt"
+        r = coderunner.code(source_code, language, output, Input)
+        r.run()
+        self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
 
-# # test for C++ program
+# test for C++ program
 
 
-# class TestRunG(unittest.TestCase):
-#     def test_run(self):
-#         source_code = "testfiles/" + "test_c++.cpp"
-#         language = "C++"
-#         output = "testfiles/output/" + "output8.txt"
-#         r = coderunner.code(source_code, language, output)
-#         r.run()
-#         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
+class TestRunG(unittest.TestCase):
+    def test_run(self):
+        source_code = "testfiles/" + "test_c++.cpp"
+        language = "C++"
+        output = "testfiles/output/" + "output8.txt"
+        r = coderunner.code(source_code, language, output)
+        r.run()
+        self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
 
-# # test for C++ program with input
+# test for C++ program with input
 
 
-# class TestRunH(unittest.TestCase):
-#     def test_run(self):
-#         source_code = "testfiles/" + "test_c++_input.cpp"
-#         language = "C++"
-#         output = "testfiles/output/" + "output4.txt"
-#         Input = "testfiles/input/" + "input3.txt"
-#         r = coderunner.code(source_code, language, output, Input)
-#         r.run()
-#         self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
+class TestRunH(unittest.TestCase):
+    def test_run(self):
+        source_code = "testfiles/" + "test_c++_input.cpp"
+        language = "C++"
+        output = "testfiles/output/" + "output4.txt"
+        Input = "testfiles/input/" + "input3.txt"
+        r = coderunner.code(source_code, language, output, Input)
+        r.run()
+        self.assertEqual(r.getStatus(), "Accepted", "Something Wrong")
 
 
-# # test to check ValueError exception
+# test to check ValueError exception
 
 
-# class TestRunI(unittest.TestCase):
-#     def test_run(self):
-#         with self.assertRaises(ValueError):
-#             coderunner.code("Hello World", "fgbh", "Hello World", path=False)
+class TestRunI(unittest.TestCase):
+    def test_run(self):
+        with self.assertRaises(ValueError):
+            coderunner.code("Hello World", "fgbh", "Hello World", path=False)
 
 
-# # test to check OSError exception
+# test to check OSError exception
 
 
-# class TestRunJ(unittest.TestCase):
-#     def test_run(self):
-#         with self.assertRaises(OSError):
-#             coderunner.code("Hello World", "C++", "Hello World")
+class TestRunJ(unittest.TestCase):
+    def test_run(self):
+        with self.assertRaises(OSError):
+            coderunner.code("Hello World", "C++", "Hello World")
 
 
-# # test to check OSError exception
+# test to check OSError exception
 
 
-# class TestRunK(unittest.TestCase):
-#     def test_run(self):
-#         with self.assertRaises(OSError):
-#             coderunner.code("testfiles/" + "test_c++.cpp", "C++", "Hello World")
+class TestRunK(unittest.TestCase):
+    def test_run(self):
+        with self.assertRaises(OSError):
+            coderunner.code("testfiles/" + "test_c++.cpp", "C++", "Hello World")
 
 
-# # test to check OSError exception
+# test to check OSError exception
 
 
-# class TestRunL(unittest.TestCase):
-#     def test_run(self):
-#         with self.assertRaises(OSError):
-#             coderunner.code(
-#                 "testfiles/" + "test_c++.cpp",
-#                 "C++",
-#                 "testfiles/output/" + "output4.txt",
-#                 "my_input",
-#             )
+class TestRunL(unittest.TestCase):
+    def test_run(self):
+        with self.assertRaises(OSError):
+            coderunner.code(
+                "testfiles/" + "test_c++.cpp",
+                "C++",
+                "testfiles/output/" + "output4.txt",
+                "my_input",
+            )
 
 
 # # test to check Wrong Answer Status

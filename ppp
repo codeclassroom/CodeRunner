@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Shell Script to Publish a Python Package
 find_setup_py(){

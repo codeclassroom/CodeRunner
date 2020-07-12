@@ -1,6 +1,6 @@
 # CodeRunner 🏃
 
-> A judge 👨🏽‍⚖️ for your programs, run and test your programs through Python
+> A judge 👨🏽‍⚖️ for your programs, run and test your programs using Python
 
 
 ![PyPI](https://img.shields.io/pypi/v/coderunner?color=blue)

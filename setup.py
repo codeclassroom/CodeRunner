@@ -9,7 +9,7 @@ setuptools.setup(
     license="MIT",
     author="Bhupesh Varshney",
     author_email="varshneybhupesh@gmail.com",
-    description="A judge for your programs, run and test your programs through Python",
+    description="A judge for your programs, run and test your programs using Python",
     keywords="judge0 coderunner judge0api codeclassroom ",
     long_description=long_description,
     long_description_content_type="text/markdown",
