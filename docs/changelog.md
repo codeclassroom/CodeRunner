@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file.
 - Custom API URL support
 
 ### Changed
-- Due to Judge0 API going [freemium](https://github.com/judge0/api/issues/171), the default API URL, [https://api.judge0.com] is no longer available. To use the API signup for a plan on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing)
+- Due to Judge0 API going [freemium](https://github.com/judge0/api/issues/171), the default API URL, [https://api.judge0.com] is no longer available. To use the API signup for a plan on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) & use the token to access the API through coderunner.
 
 
 ## [0.8] - May 27, 2020

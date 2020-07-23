@@ -30,21 +30,31 @@ pip install git+https://github.com/codeclassroom/CodeRunner.git
 
 ```python
 
-import coderunner
+from coderunner import coderunner
+import os
 
-source_code = "path-to/test_python.py"
-language = "Python"
-expected_output = "path-to/output.txt"
-standard_input = "path-to/input.txt"
+from dotenv import load_dotenv
+load_dotenv()
 
-# use this if you have a standard input to Program
-r = coderunner.code(source_code, language, expected_output, standard_input)
+source_code = "testfiles/" + "test_python_input.py"
+language = "Python3"
+output = "testfiles/output/" + "output2.txt"
+Input = "testfiles/input/" + "input.txt"
 
-# otherwise
-r = coderunner.code(source_code, language, expected_output)
 
-# Use path=False if not using file paths
-r = coderunner.code("Hello, World", language, "Hello, World", path=False)
+API_KEY = os.environ["API_KEY"]
+
+r = coderunner.code(source_code, language, output, Input)
+
+# Necessary step to initialize API keys & URL
+r.api(key=API_KEY)
+
+# run the code
+r.run()
+
+print("Running r :")
+print("Status : " + r.getStatus())
+print("Output : " + r.getOutput())
 ```
 
 ## Documentation
