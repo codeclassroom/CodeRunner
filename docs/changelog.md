@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0] - June , 2020
+## [1.0] - July 23 , 2020
 ⚠ **Major Update (Breaking Changes)**
 
 ### Added
