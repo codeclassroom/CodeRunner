@@ -2,8 +2,8 @@ site_name: CodeRunner
 site_url: https://codeclassroom.github.io/CodeRunner/
 repo_url: https://github.com/codeclassroom/CodeRunner
 site_author: Bhupesh Varshney
-site_description: CodeRunner v0.5 Documentation
-copyright: © 2019, Bhupesh Varshney
+site_description: CodeRunner v1.0 Documentation
+copyright: © 2020, Bhupesh Varshney
 nav:
     - Documentation: index.md
     - Installation: installation.md

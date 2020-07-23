@@ -1,6 +1,6 @@
 # Usage
 
-coderunner provides the following class constructors
+coderunner provides the following class.
 
 ### code(source, lang, output, inp, path)
 
@@ -51,6 +51,41 @@ print(r.languages)
 
 
 Methods available in class `code()`.
+
+### api()
+
+Since v1.0, you need to provide a API Key & URL for using Judge0 through coderunner.
+
+Here is an example on how to do this.
+
+```python
+from coderunner import coderunner
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+source_code = "testfiles/" + "test_python_input.py"
+language = "Python3"
+output = "testfiles/output/" + "output2.txt"
+Input = "testfiles/input/" + "input.txt"
+
+
+API_KEY = os.environ["API_KEY"]
+
+r = coderunner.code(source_code, language, output, Input)
+
+# Necessary step to initialize API keys & URL
+r.api(key=API_KEY)
+
+r.run()
+
+print("Run r :")
+print("Status : " + r.getStatus())
+print("Output : " + r.getOutput())
+````
+
+The default API URL is [https://judge0.p.rapidapi.com/]()
 
 ### 1. run()
 **Parameters(type)** : Number Of Runs (`int`), optional<br>

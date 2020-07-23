@@ -52,12 +52,17 @@ api_params = {
     "max_file_size": "1024",
 }
 
-API_URL = "https://api.judge0.com/submissions/"
+HEADERS = {"x-rapidapi-host": "judge0.p.rapidapi.com", "useQueryString": True}
+
 FIELDS = "?fields=stdout,memory,time,status,stderr,exit_code,created_at"
 
 
 class ValueTooLargeError(Exception):
     """Raised when the input value is too large"""
+
+
+class InvalidURL(Exception):
+    """Raise when api_url is invalid"""
 
 
 class code:
@@ -132,10 +137,12 @@ class code:
 
     def __readStatus(self, token: str):
         """
-        Check Submission status
+        Check Submission Status
         """
         while True:
-            req = urllib.request.Request(API_URL + token["token"] + FIELDS)
+            req = urllib.request.Request(
+                f'{self.API_URL}submissions/{token["token"]}{FIELDS}', headers=HEADERS
+            )
             with urllib.request.urlopen(req) as response:
                 req = response.read()
 
@@ -161,12 +168,27 @@ class code:
         api_params["source_code"] = self.source
 
         post_data = urllib.parse.urlencode(api_params).encode("ascii")
-        req = urllib.request.Request(API_URL, post_data)
+        req = urllib.request.Request(
+            f"{self.API_URL}submissions/", post_data, headers=HEADERS
+        )
         with urllib.request.urlopen(req) as response:
             req = response.read()
         token = json.loads(req.decode("utf-8"))
 
         return token
+
+    def api(self, key: str, url: str = None):
+        """Setup API url and key"""
+        HEADERS["x-rapidapi-key"] = key
+        self.API_KEY = key
+        if url is None:
+            self.API_URL = "https://judge0.p.rapidapi.com/"
+        else:
+            user_api_url = urllib.parse.urlparse(url)
+            if user_api_url.scheme and user_api_url.netloc:
+                self.API_URL = url
+            else:
+                raise InvalidURL("Invalid API URL")
 
     def getSubmissionDate(self):
         """Submission date/time of program"""
@@ -196,21 +218,15 @@ class code:
 
     def setFlags(self, options: str):
         """Options for the compiler (i.e. compiler flags)"""
-        try:
-            if len(options) > 128:
-                raise ValueTooLargeError
-            api_params["compiler_options"] = options
-        except ValueTooLargeError:
-            print("Maximum 128 characters allowed")
+        if len(options) > 128:
+            raise ValueTooLargeError("Maximum 128 characters allowed")
+        api_params["compiler_options"] = options
 
     def setArguments(self, arguments: str):
         """Command line arguments for the program"""
-        try:
-            if len(arguments) > 128:
-                raise ValueTooLargeError
-            api_params["command_line_arguments"] = arguments
-        except ValueTooLargeError:
-            print("Maximum 128 characters allowed")
+        if len(arguments) > 128:
+            raise ValueTooLargeError("Maximum 128 characters allowed")
+        api_params["command_line_arguments"] = arguments
 
     def run(self, number_of_runs: int = 1):
         """Submit the source code on judge0's server & return status"""

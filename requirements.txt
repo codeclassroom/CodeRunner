@@ -1,4 +1,5 @@
-isort
+isort==4.3.21
 black
 flake8
 pylint
+python-dotenv

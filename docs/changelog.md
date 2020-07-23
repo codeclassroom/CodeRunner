@@ -1,5 +1,16 @@
 # Changelog
 
+All notable changes to this project will be documented in this file.
+
+## [1.0] - June , 2020
+⚠ **Major Update (Breaking Changes)**
+
+### Added
+- Add API key authorizations
+- Custom API URL support
+
+### Changed
+- Due to Judge0 API going [freemium](https://github.com/judge0/api/issues/171), the default API URL, [https://api.judge0.com] is no longer available. To use the API signup for a plan on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) & use the token to access the API through coderunner.
 
 
 ## [0.8] - May 27, 2020
@@ -8,14 +19,20 @@
 - Fixed bug where compiling a Java program resulted in Compilation Error.
 
 
+## [0.7] - Jan 19, 2020
+
+### Changed
+- `code()` class now ignores `output`. i.e you can just provide source code & language to run a program.
+
+
 ## [0.6] - Jan 5, 2020
 
 ### Added
 
 - New optional argument, `number_of_runs`  in `run()` method, use this to specify no.of times you want to run the code. Default is set to 1.
 - Ported NEW Languages. CodeRunner now supports all languages provided by Judge0.
-- [`setFlags(options)`](/usage/#9-setflagsoptions) for setting options for the compiler (i.e. compiler flags).
-- [`setArguments(arguments)`](/usage/#10-setargumentsarguments) for setting Command line arguments for the program.
+- `setFlags(options)` for setting options for the compiler (i.e. compiler flags).
+- `setArguments(arguments)` for setting Command line arguments for the program.
 
 ### Changed
 - Minor internal improvemets.
@@ -68,6 +85,3 @@ This is effect fixes [#2](https://github.com/codeclassroom/CodeRunner/issues/2).
 
 ## [0.1] - Oct 30, 2019
 - Initial Release
-
-# Releases
-See releases on [PyPi](https://pypi.org/project/coderunner/#history)
